@@ -65,6 +65,10 @@
 							<td>{{ $bantuan->jenis }}</td>
 						</tr>
 						<tr>
+							<th>Tanggal Bantuan</th>
+							<td>{{ $bantuan->tanggal }}</td>
+						</tr>
+						<tr>
 							<th>Detail</th>
 							<td>{{ $bantuan->detail }}</td>
 						</tr>

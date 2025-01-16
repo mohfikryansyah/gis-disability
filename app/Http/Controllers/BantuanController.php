@@ -52,7 +52,8 @@ class BantuanController extends Controller
             $data = $request->only([
                 'penyandang_id',
                 'jenis',
-                'detail'
+                'detail',
+                'tanggal'
             ]) + [
                 'relawan_id' => auth()->user()->relawan?->id
             ];
@@ -94,6 +95,7 @@ class BantuanController extends Controller
 
             $bantuan->jenis = $request->jenis;
             $bantuan->detail = $request->detail;
+            $bantuan->tanggal = $request->tanggal;
 
             $bantuan->save();
 

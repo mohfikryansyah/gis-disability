@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('no_induk_disabilitas', 16);
             $table->string('nama', 50);
             $table->string('jenis_kelamin', 9);
+            $table->string('tanggal');
             $table->string('kontak', 12);
             $table->string('foto_diri');
             $table->string('foto_ktp');

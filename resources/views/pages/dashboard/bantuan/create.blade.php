@@ -19,6 +19,7 @@
 						<x-form.select name="jenis" label="Jenis Bantuan" :options="collect(config('constants.JENIS_BANTUAN'))->map(function ($item) {
 						    return (object) ['label' => $item, 'value' => $item];
 						})" />
+						<x-form.input type="date" name="tanggal" label="Tanggal" />
 						<x-form.textarea name="detail" label="Detail Bantuan" />
 						@if (auth()->user()->isRelawan())
 							<x-form.input type="file" name="bukti" label="Bukti / Dokumentasi" />

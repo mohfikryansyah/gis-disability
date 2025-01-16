@@ -16,6 +16,7 @@ class Bantuan extends Model
         'relawan_id',
         'status',
         'jenis',
+        'tanggal',
         'detail',
         'bukti',
     ];

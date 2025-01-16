@@ -15,7 +15,7 @@ class PenyandangController extends Controller
         $query = Penyandang::query();
 
         if (auth()->user()->isRelawan()) {
-            $query->where('relawan_id', auth()->user()->relawan->id);
+        $query->where('district_id', auth()->user()->relawan->district_id);
         }
 
         $penyandang = $query->get();
@@ -52,6 +52,7 @@ class PenyandangController extends Controller
                 'status_pernikahan' => $request->status_pernikahan,
                 'keterampilan' => $request->keterampilan,
                 'usaha' => $request->usaha,
+                'tanggal' => $request->tanggal,
                 'kontak' => $request->kontak,
                 'alamat' => $request->alamat,
                 'latitude' => $request->latitude,
@@ -106,6 +107,7 @@ class PenyandangController extends Controller
             $penyandang->status_pernikahan = $request->status_pernikahan;
             $penyandang->keterampilan = $request->keterampilan;
             $penyandang->usaha = $request->usaha;
+            $penyandang->tanggal = $request->tanggal;
             $penyandang->kontak = $request->kontak;
             $penyandang->alamat = $request->alamat;
             $penyandang->district_id = $request->district_id;

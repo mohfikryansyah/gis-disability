@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('status', 9)->default('DIAJUKAN');
             $table->string('jenis');
             $table->string('detail');
+            $table->string('tanggal');
             $table->string('bukti')->nullable();
             $table->foreignId('penyandang_id')->constrained('penyandangs')->onDelete('cascade');
             $table->foreignId('relawan_id')->constrained('relawans')->onDelete('cascade');
