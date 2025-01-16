@@ -115,15 +115,15 @@
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Galeri</a>
                     </li>
                     @auth
-                    <li>
-                        <a href="{{ route('dashboard.index') }}"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Dashboard</a>
-                    </li>
+                        <li>
+                            <a href="{{ route('dashboard.index') }}"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Dashboard</a>
+                        </li>
                     @else
-                    <li>
-                        <a href="{{ route('auth.login.index') }}"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
-                    </li>
+                        <li>
+                            <a href="{{ route('auth.login.index') }}"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+                        </li>
 
                     @endauth
                 </ul>
@@ -302,9 +302,10 @@
             <h1
                 class="md:text-5xl text-4xl font-bold max-w-screen-xl mx-auto md:leading-[3.75rem] text-slate-800 mb-5">
                 Galeri</h1>
+            @if ($galleries)
                 <div class="grid grid-cols-3 gap-5">
                     @foreach ($galleries as $gallery)
-                    <div class="rounded-lg overflow-hidden">
+                        <div class="rounded-lg overflow-hidden">
                             <a href="{{ asset('storage/' . $gallery->file_path) }}" target="_blank">
                                 <img src="{{ asset('storage/' . $gallery->file_path) }}"
                                     class="h-auto w-full hover:scale-105 transition duration-300 mx-auto rounded-lg"
@@ -313,6 +314,12 @@
                         </div>
                     @endforeach
                 </div>
+            @else
+                <div class="w-full py-20 border-2 border-gray-200 border-dotted rounded xl flex justify-center items-center">
+                    Tidak ada foto yang tersedia untuk ditampilkan.</div>
+
+            @endif
+
         </div>
     </section>
 

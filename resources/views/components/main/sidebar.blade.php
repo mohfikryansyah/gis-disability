@@ -84,7 +84,7 @@
 		<div class="sidebar-header position-relative">
 			<div class="d-flex justify-content-between align-items-center">
 				<div class="logo">
-					<a href="{{ route('dashboard.index') }}">
+					<a href="{{ route('landingpage') }}">
 						<div class="d-flex align-items-center gap-2">
 							{{-- <img src="{{ asset('images/default/jejakode.svg') }}" alt="Logo" srcset=""> --}}
 							<span class="fs-5 text-primary">{{ config('app.name') }}</span>
