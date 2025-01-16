@@ -64,7 +64,7 @@ class PenyandangController extends Controller
                 'foto_kk' => basename($foto_kk),
             ]);
 
-            return redirect()->back()->with('success', 'Data berhasil ditambahkan.');
+            return redirect()->route("dashboard.master.penyandang.index")->with('success', 'Data berhasil ditambahkan.');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors($th->getMessage())->withInput();
         }

@@ -33,7 +33,7 @@
 								<div class="row">
 									@foreach ($activity->documentations as $documentation)
 										<span class="col-3 mb-3">
-											<img src="{{ asset('storage/documentations/' . $documentation->name) }}" alt="Dokumentasi" class="w-100 border border-2" height="100" style="object-fit: cover;">
+											<img src="{{ asset('storage/documentations/public' . $documentation->name) }}" alt="Dokumentasi" class="w-100 border border-2" height="100" style="object-fit: cover;">
 										</span>
 									@endforeach
 								</div>

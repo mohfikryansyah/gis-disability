@@ -72,7 +72,7 @@
 							<th>Bukti Penerimaan</th>
 							<td>
 								@if ($bantuan->bukti)
-									<a href="{{ asset('storage/bukti/' . $bantuan->bukti) }}">{{ $bantuan->bukti }}</a>
+									<a href="{{ asset('storage/bukti/public/' . $bantuan->bukti) }}">{{ $bantuan->bukti }}</a>
 								@else
 									<span class="text-danger">Belum ada bukti</span>	
 								@endif

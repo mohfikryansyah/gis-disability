@@ -92,6 +92,9 @@
 						<b>${e.alamat}</b>
 					</div>
 					<div class="d-flex justify-content-between align-items-center">
+						<a href="https://maps.google.com/maps?q=${e.latitude},${e.longitude}" target="_blank">Lihat di Google Maps</a>
+					</div>
+					<div class="d-flex justify-content-between align-items-center">
 						<a href="${route.replace("uuid", e.uuid)}">Detail</a>
 					</div>
 				</div>

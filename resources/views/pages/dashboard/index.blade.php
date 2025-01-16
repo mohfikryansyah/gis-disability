@@ -65,14 +65,16 @@
 				</div>
 			</div>
 			<div class="row">
-				{{-- <div class="col-6 col-lg-6 col-md-6">
+				@if (!auth()->user()->isRelawan())
+				<div class="col-6 col-lg-6 col-md-6">
 					<div class="card">
 						<div class="card-body">
 							<h5>Jumlah Relawan Per Kecamatan</h5>
 							<div id="chart-relawan"></div>
 						</div>
 					</div>
-				</div> --}}
+				</div>
+				@endif
 				<div class="col-6 col-lg-6 col-md-6">
 					<div class="card">
 						<div class="card-body">

@@ -41,7 +41,7 @@ class RelawanController extends Controller
                 'district_id' => $request->district_id,
             ]);
 
-            return redirect()->back()->with('success', 'Data berhasil ditambahkan.');
+            return redirect()->route("dashboard.master.relawan.index")->with('success', 'Data berhasil ditambahkan.');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors($th->getMessage())->withInput();
         }

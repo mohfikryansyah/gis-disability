@@ -114,7 +114,7 @@
 								Foto Diri
 							</th>
 							<td class="text-end">
-								<img class="" style="max-width: 50%" src="{{ asset('storage/foto_diri/' . $penyandang->foto_diri) }}" alt="Foto {{ $penyandang->nama }}">
+								<img class="" style="max-width: 50%" src="{{ asset('storage/foto_diri/public/' . $penyandang->foto_diri) }}" alt="Foto {{ $penyandang->nama }}">
 							</td>
 						</tr>
 						<tr>
@@ -122,7 +122,7 @@
 								Foto KT
 							</th>
 							<td class="text-end">
-								<img class="" style="max-width: 50%" src="{{ asset('storage/foto_ktp/' . $penyandang->foto_ktp) }}" alt="Foto KTP {{ $penyandang->nama }}">
+								<img class="" style="max-width: 50%" src="{{ asset('storage/foto_ktp/public/' . $penyandang->foto_ktp) }}" alt="Foto KTP {{ $penyandang->nama }}">
 							</td>
 						</tr>
 						<tr>
@@ -130,7 +130,7 @@
 								Foto Diri
 							</th>
 							<td class="text-end">
-								<img class="" style="max-width: 50%" src="{{ asset('storage/foto_kk/' . $penyandang->foto_kk) }}" alt="Foto KK {{ $penyandang->nama }}">
+								<img class="" style="max-width: 50%" src="{{ asset('storage/foto_kk/public/' . $penyandang->foto_kk) }}" alt="Foto KK {{ $penyandang->nama }}">
 							</td>
 						</tr>
 					</table>
