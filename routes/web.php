@@ -13,6 +13,7 @@ use App\Http\Controllers\PersebaranController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Exports\RelawanExportController;
 use App\Http\Controllers\Exports\PimpinanExportController;
+use App\Http\Controllers\GalleryController;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
@@ -37,6 +38,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(func
     });
     Route::get('/penyandang', [PenyandangController::class, 'index'])->name('penyandang.index');
     Route::get('/penyandang/{penyandang}', [PenyandangController::class, 'show'])->name('penyandang.show');
+    Route::resource('/gallery', GalleryController::class)->names('gallery');
     Route::resource('/persebaran', PersebaranController::class)->names('persebaran');
     Route::resource('/bantuan', BantuanController::class)->names('bantuan');
     Route::resource('/activity', ActivityController::class)->names('activity');

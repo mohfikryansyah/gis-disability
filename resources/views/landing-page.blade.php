@@ -286,7 +286,7 @@
                 <div
                     class="max-w-screen-xl w-full gap-5 md:absolute md:top-10 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 mx-auto grid md:grid-cols-4">
                     @foreach ($kegiatans as $k)
-                        <x-card :src="asset('storage/public/documentations/' . $k->documentations->first()?->name)" :title="$k->name" :address="$k->location" />
+                        <x-card :src="asset('storage/documentations/' . $k->documentations->first()?->name)" :title="$k->name" :address="$k->location" />
                     @endforeach
                 </div>
             @else
@@ -298,6 +298,25 @@
     </section>
 
     <section id="galeri" class="w-full pb-20 md:px-0 px-5">
+        <div class="mx-auto max-w-screen-xl">
+            <h1
+                class="md:text-5xl text-4xl font-bold max-w-screen-xl mx-auto md:leading-[3.75rem] text-slate-800 mb-5">
+                Galeri</h1>
+                <div class="grid grid-cols-3 gap-5">
+                    @foreach ($galleries as $gallery)
+                    <div class="rounded-lg overflow-hidden">
+                            <a href="{{ asset('storage/' . $gallery->file_path) }}" target="_blank">
+                                <img src="{{ asset('storage/' . $gallery->file_path) }}"
+                                    class="h-auto w-full hover:scale-105 transition duration-300 mx-auto rounded-lg"
+                                    alt="Image">
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+        </div>
+    </section>
+
+    {{-- <section id="galeri" class="w-full pb-20 md:px-0 px-5">
         <div class="mx-auto max-w-screen-xl">
             <h1
                 class="md:text-5xl text-4xl font-bold max-w-screen-xl mx-auto md:leading-[3.75rem] text-slate-800 mb-5">
@@ -354,7 +373,7 @@
                 </button>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 

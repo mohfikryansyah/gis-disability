@@ -1,11 +1,11 @@
 @extends('layouts.dashboard', [
     'breadcrumbs' => [
         'Dashboard' => route('dashboard.index'),
-        'Kegiatan' => route('dashboard.activity.index'),
+        'Kegiatan' => route('dashboard.gallery.index'),
         'Tambah Data' => '#',
     ],
 ])
-@section('title', 'Tambah Kegiatan')
+@section('title', 'Tambah Foto')
 @push('css')
 	<link rel="stylesheet" href="{{ asset('css/extensions/filepond.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/extensions/filepond-plugin-image-preview.css') }}">
@@ -15,12 +15,9 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body py-4-5 px-4">
-					<form action="{{ route('dashboard.activity.store') }}" method="POST" enctype="multipart/form-data">
+					<form action="{{ route('dashboard.gallery.store') }}" method="POST" enctype="multipart/form-data">
 						@csrf
-						<x-form.input name="name" label="Nama Kegiatan" />
-						<x-form.input name="location" label="Lokasi" />
-						<x-form.input type="date" name="tanggal" label="Tanggal Kegiatan" />
-						<x-form.input type="file" name="documentations[]" label="Dokumentasi" class="multiple-files-filepond" />
+						<x-form.input type="file" name="fotos[]" label="Foto" class="multiple-files-filepond" :required="true" />
 						<div class="pt-3">
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>

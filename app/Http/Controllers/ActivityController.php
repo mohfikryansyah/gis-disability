@@ -26,7 +26,7 @@ class ActivityController extends Controller
         try {
             $activity = Activity::create(
                 $request->only([
-                    'name', 'location'
+                    'name', 'location', 'tanggal'
                 ]) + [
                     'relawan_id' => auth()->user()->relawan?->id
                 ]
@@ -39,7 +39,7 @@ class ActivityController extends Controller
                 ]);
             }
 
-            return redirect()->back()->with('success', 'Data berhasil ditambahkan.');
+            return redirect()->route('dashboard.activity.index')->with('success', 'Data berhasil ditambahkan.');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors($th->getMessage())->withInput();
         }
@@ -60,10 +60,11 @@ class ActivityController extends Controller
         try {
             $activity->name = $request->name;
             $activity->location = $request->location;
+            $activity->tanggal = $request->tanggal;
 
             $activity->save();
 
-            return redirect()->back()->with('success', 'Data berhasil diperbarui.');
+            return redirect()->route('dashboard.activity.index')->with('success', 'Data berhasil diperbarui.');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors($th->getMessage())->withInput();
         }

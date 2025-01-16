@@ -87,7 +87,6 @@
 						</div>
 						<div class="mb-5">
 							<h5>Kontak</h5>
-							<x-form.input type="date" name="tanggal" label="Tanggal" :value="$penyandang->tanggal"/>
 							<x-form.input type="text" name="kontak" label="Nomor HP" format="phone" maxlength="14" :value="$penyandang->kontak" />
 							<x-form.textarea type="text" name="alamat" label="Alamat" :value="$penyandang->alamat" />
 							<x-form.select name="district_id" label="Kecamatan" :options="$districts->map(function ($district) {

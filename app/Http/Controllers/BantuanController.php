@@ -17,7 +17,7 @@ class BantuanController extends Controller
         $query = Bantuan::query();
 
         if (auth()->user()->isRelawan()) {
-            $districtId = auth()->user()->relawan->district->id;
+            $districtId = auth()->user()->relawan->district_id;
             $query->whereHas('penyandang', function ($query) use ($districtId) {
                 $query->where('district_id', $districtId);
             });
@@ -39,7 +39,7 @@ class BantuanController extends Controller
         }
 
         $query = Penyandang::query();
-        $query->where('relawan_id', auth()->user()->relawan->id);
+        $query->where('district_id', auth()->user()->relawan->district_id);
 
         $penyandang = $query->get();
 

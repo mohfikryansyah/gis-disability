@@ -56,6 +56,13 @@
 	                'hasSubItems' => false,
 	                'link' => route('dashboard.activity.index'),
 	            ],
+				(object) [
+	                'roles' => [$_ADMIN],
+	                'label' => 'Galeri',
+	                'icon' => 'bi bi-people-fill',
+	                'hasSubItems' => false,
+	                'link' => route('dashboard.gallery.index'),
+	            ],
 	        ],
 	    ],
 	    (object) [

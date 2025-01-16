@@ -16,6 +16,7 @@ class Activity extends Model
         'relawan_id',
         'name',
         'location',
+        'tanggal',
     ];
 
     public function getRouteKeyName(): string

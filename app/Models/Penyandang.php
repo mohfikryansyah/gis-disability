@@ -22,7 +22,6 @@ class Penyandang extends Model
         'status_pernikahan',
         'keterampilan',
         'usaha',
-        'tanggal',
         'kontak',
         'alamat',
         'latitude',

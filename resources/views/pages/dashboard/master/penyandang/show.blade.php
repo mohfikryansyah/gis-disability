@@ -15,17 +15,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body py-4-5 px-4">
-                    <div class="d-flex justify-content-between mb-4 gap-2">
-                        Tanggal : {{ $penyandang->tanggal ? date_format(date_create($penyandang->tanggal), 'd F, Y') : '-' }}
+                    <div class="d-flex justify-content-end mb-4 gap-2">
                         @if (auth()->user()->isAdmin())
-                            <div>
-                                <a href="{{ route('dashboard.master.penyandang.edit', $penyandang->uuid) }}"
-                                    class="btn btn-warning btn-sm">
-                                    <i class="bi bi-pencil-square"></i>
-                                    Edit
-                                </a>
-                                <x-form.delete :id="$penyandang->uuid" :action="route('dashboard.master.penyandang.destroy', $penyandang->uuid)" :label="$penyandang->nama" text="Hapus" />
-                            </div>
+                            <a href="{{ route('dashboard.master.penyandang.edit', $penyandang->uuid) }}"
+                                class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
+                            </a>
+                            <x-form.delete :id="$penyandang->uuid" :action="route('dashboard.master.penyandang.destroy', $penyandang->uuid)" :label="$penyandang->nama" text="Hapus" />
                         @endif
                     </div>
                     <h5 class="mb-4">Informasi</h5>
@@ -119,7 +116,7 @@
                             </th>
                             <td class="text-end">
                                 <img class="" style="max-width: 50%"
-                                    src="{{ asset('storage/foto_diri/public/' . $penyandang->foto_diri) }}"
+                                    src="{{ asset('storage/foto_diri/' . $penyandang->foto_diri) }}"
                                     alt="Foto {{ $penyandang->nama }}">
                             </td>
                         </tr>
@@ -129,7 +126,7 @@
                             </th>
                             <td class="text-end">
                                 <img class="" style="max-width: 50%"
-                                    src="{{ asset('storage/foto_ktp/public/' . $penyandang->foto_ktp) }}"
+                                    src="{{ asset('storage/foto_ktp/' . $penyandang->foto_ktp) }}"
                                     alt="Foto KTP {{ $penyandang->nama }}">
                             </td>
                         </tr>
@@ -139,7 +136,7 @@
                             </th>
                             <td class="text-end">
                                 <img class="" style="max-width: 50%"
-                                    src="{{ asset('storage/foto_kk/public/' . $penyandang->foto_kk) }}"
+                                    src="{{ asset('storage/foto_kk/' . $penyandang->foto_kk) }}"
                                     alt="Foto KK {{ $penyandang->nama }}">
                             </td>
                         </tr>
