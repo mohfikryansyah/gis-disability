@@ -17,7 +17,7 @@ use App\Http\Controllers\Exports\PimpinanExportController;
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
 Route::name('auth.')->group(function () {
-    Route::get('/login', [AuthController::class, 'login_index'])->name('login.index');
+    Route::get('/login', [AuthController::class, 'login_index'])->middleware('guest')->name('login.index');
     Route::post('/login/authenticate', [AuthController::class, 'login_authenticate'])->name('login.authenticate');
     Route::get('/register', [AuthController::class, 'register_index'])->name('register.index');
     Route::post('/register/submit', [AuthController::class, 'register_submit'])->name('register.submit');
