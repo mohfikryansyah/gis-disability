@@ -359,12 +359,12 @@
 
 
     <footer class="bg-slate-900">
-        <div class="max-w-screen-lg flex justify-between items-center py-3 mx-auto">
+        <div class="max-w-screen-xl md:px-0 px-2 flex justify-between items-center py-3 mx-auto">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span
                     class="self-center text-2xl whitespace-nowrap dark:text-white font-bangers italic">DisabilityCare</span>
             </a>
-            <p class="text-gray-100">Copyright © Zaim</p>
+            <p class="text-gray-100">Copyright © DisabilityCare</p>
         </div>
     </footer>
 
