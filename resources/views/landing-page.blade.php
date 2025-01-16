@@ -286,7 +286,7 @@
                 <div
                     class="max-w-screen-xl w-full gap-5 md:absolute md:top-10 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 mx-auto grid md:grid-cols-4">
                     @foreach ($kegiatans as $k)
-                        <x-card :src="asset('storage/documentations/' . $k->documentations->first()?->name)" :title="$k->name" :address="$k->location" />
+                        <x-card :src="asset('storage/public/documentations/' . $k->documentations->first()?->name)" :title="$k->name" :address="$k->location" />
                     @endforeach
                 </div>
             @else
