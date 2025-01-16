@@ -42,7 +42,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <x-modal.confirm route="{{ route('dashboard.gallery.destroy', $gallery->id) }}" method="DELETE" id="delete" title="Konfirmasi" color="danger">
+                                        <x-modal.confirm route="{{ route('dashboard.gallery.destroy', $gallery->id) }}" method="DELETE" id="delete" title="Apakah anda yakin untuk menghapus data ini?" color="danger" submit="Konfirmasi">
 											<x-slot:btn>
 												<i class="bi bi-x-circle"></i>
 												Delete
