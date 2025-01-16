@@ -282,7 +282,7 @@
             Kegiatan</h1>
 
         <div class="md:bg-gray-50 md:h-[40vh] relative md:mt-60">
-            @if ($kegiatans)
+            @if ($kegiatans->isNotEmpty())
                 <div
                     class="max-w-screen-xl w-full gap-5 md:absolute md:top-10 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 mx-auto grid md:grid-cols-4">
                     @foreach ($kegiatans as $k)
@@ -302,7 +302,7 @@
             <h1
                 class="md:text-5xl text-4xl font-bold max-w-screen-xl mx-auto md:leading-[3.75rem] text-slate-800 mb-5">
                 Galeri</h1>
-            @if ($galleries)
+            @if ($galleries->isNotEmpty())
                 <div class="grid grid-cols-3 gap-5">
                     @foreach ($galleries as $gallery)
                         <div class="rounded-lg overflow-hidden">
