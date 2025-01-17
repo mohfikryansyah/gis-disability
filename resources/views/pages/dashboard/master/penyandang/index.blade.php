@@ -40,9 +40,12 @@
                         <x-modal id="exportModal" title="Export Excel" form="export_penyandang" button="Export">
                             <form action="{{ route('export.relawan.penyandang') }}" method="post" id="export_penyandang">
                                 @csrf
-                                <x-form.select name="penyandang_id" label="Penyandang" :options="$penyandang->map(function ($penyandang) {
+                                {{-- <x-form.select name="penyandang_id" label="Penyandang" :options="$penyandang->map(function ($penyandang) {
                                     return (object) ['label' => $penyandang->nama, 'value' => $penyandang->id];
-                                })" />
+                                })" /> --}}
+                                @if (auth()->user()->isRelawan())
+                                    <h5>Seluruh data penyandang akan diexport ke excel.</h5>
+                                @endif
                                 @if (auth()->user()->isAdmin())
                                     <x-form.select name="district_id" label="Kecamatan" :options="$districts->map(function ($district) {
                                         return (object) [

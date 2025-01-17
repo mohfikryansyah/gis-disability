@@ -23,11 +23,11 @@
                                 ];
                             })" />
                             <x-form.input type="text" name="nama" label="Nama Penyandang" />
-                            <x-form.input type="number" name="no_induk_disabilitas" label="Nomor Induk Disabilitas"
+                            <x-form.input type="tel" name="no_induk_disabilitas" label="Nomor Induk Disabilitas"
                                 maxlength="16" minlength="16" />
-                            <x-form.input type="number" name="nik" label="Nomor Induk Kependudukan" maxlength="16"
+                            <x-form.input type="tel" name="nik" label="Nomor Induk Kependudukan" maxlength="16"
                                 minlength="16" />
-                            <x-form.input type="number" name="no_kk" label="Nomor Kartu Keluarga" maxlength="16"
+                            <x-form.input type="tel" name="no_kk" label="Nomor Kartu Keluarga" maxlength="16"
                                 minlength="16" />
                             <x-form.select name="jenis_kelamin" label="Jenis Kelamin" :options="[
                                 (object) [

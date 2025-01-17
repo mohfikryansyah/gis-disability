@@ -159,8 +159,8 @@
                 </div>
 
             </div>
-            <div class="overflow-hidden rounded-lg">
-                <img src="https://cdn.prod.website-files.com/6511240890b712e01083f24b/6511240890b712e01083f3b2_image-1-hero-careers-startech-x-template.jpg"
+            <div class="overflow-hidden rounded-lg flex flex-col justify-center">
+                <img src="{{ asset('images/bgs.jpg') }}"
                     class="rounded-lg mx-auto hover:scale-105 transition duration-300" alt="Gambar Illustrasi">
             </div>
         </div>

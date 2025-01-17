@@ -25,9 +25,9 @@
 						<div class="mb-5">
 							<h5>Personal</h5>
 							<x-form.input type="text" name="nama" label="Nama Penyandang" :value="$penyandang->nama" />
-							<x-form.input type="text" name="no_induk_disabilitas" label="Nomor Induk Disabilitas" :value="$penyandang->no_induk_disabilitas" />
-							<x-form.input type="text" name="nik" label="Nomor Induk Kependudukan" maxlength="16" :value="$penyandang->nik" />
-							<x-form.input type="text" name="no_kk" label="Nomor Kartu Keluarga" maxlength="16" :value="$penyandang->no_kk" />
+							<x-form.input type="tel" name="no_induk_disabilitas" label="Nomor Induk Disabilitas" :value="$penyandang->no_induk_disabilitas" maxlength="16" />
+							<x-form.input type="tel" name="nik" label="Nomor Induk Kependudukan" maxlength="16" :value="$penyandang->nik" />
+							<x-form.input type="tel" name="no_kk" label="Nomor Kartu Keluarga" maxlength="16" :value="$penyandang->no_kk" />
 							<x-form.select name="jenis_kelamin" label="Jenis Kelamin" :value="$penyandang->jenis_kelamin" :options="[
 							    (object) [
 							        'label' => App\Constants\UserGender::MALE,
