@@ -72,6 +72,11 @@ class PenyandangController extends Controller
 
     public function show(Penyandang $penyandang)
     {
+        if(auth()->user()->isRelawan()) {
+            if ($penyandang->district_id != auth()->user()->relawan->district_id) {
+                return redirect()->back()->withErrors('Akses tidak sah.');
+            }
+        }
         return view('pages.dashboard.master.penyandang.show', compact('penyandang'));
     }
 
