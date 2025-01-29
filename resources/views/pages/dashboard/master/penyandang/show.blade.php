@@ -132,7 +132,7 @@
                         </tr>
                         <tr>
                             <th style="white-space: nowrap">
-                                Foto Diri
+                                Foto KK
                             </th>
                             <td class="text-end">
                                 <img class="" style="max-width: 50%"
@@ -143,7 +143,7 @@
                         @if ($penyandang->foto_usaha)
                             <tr>
                                 <th style="white-space: nowrap">
-                                    Foto Diri
+                                    Foto Usaha
                                 </th>
                                 <td class="text-end">
                                     <img class="" style="max-width: 50%"
@@ -155,7 +155,7 @@
                         @if ($penyandang->foto_rumah)
                             <tr>
                                 <th style="white-space: nowrap">
-                                    Foto Diri
+                                    Foto Rumah
                                 </th>
                                 <td class="text-end">
                                     <img class="" style="max-width: 50%"
