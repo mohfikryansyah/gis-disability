@@ -35,8 +35,8 @@ class StorePenyandangRequest extends FormRequest
             'foto_diri' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'foto_ktp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'foto_kk' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'foto_usaha' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'foto_rumah' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto_usaha' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto_rumah' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 
@@ -68,14 +68,14 @@ class StorePenyandangRequest extends FormRequest
             'foto_kk.image' => 'Foto KK harus dalam format gambar.',
             'foto_kk.mimes' => 'Format gambar yang diterima adalah jpeg, png, jpg, atau gif.',
             'foto_kk.max' => 'Ukuran file foto KK tidak boleh lebih dari 2MB.',
-            'foto_usaha.required' => 'Mohon unggah foto KK.',
-            'foto_usaha.image' => 'Foto KK harus dalam format gambar.',
+            'foto_usaha.required' => 'Mohon unggah foto Usaha.',
+            'foto_usaha.image' => 'Foto Usaha harus dalam format gambar.',
             'foto_usaha.mimes' => 'Format gambar yang diterima adalah jpeg, png, jpg, atau gif.',
-            'foto_usaha.max' => 'Ukuran file foto KK tidak boleh lebih dari 2MB.',
-            'foto_rumah.required' => 'Mohon unggah foto KK.',
-            'foto_rumah.image' => 'Foto KK harus dalam format gambar.',
+            'foto_usaha.max' => 'Ukuran file foto Usaha tidak boleh lebih dari 2MB.',
+            'foto_rumah.required' => 'Mohon unggah foto Rumah.',
+            'foto_rumah.image' => 'Foto Rumah harus dalam format gambar.',
             'foto_rumah.mimes' => 'Format gambar yang diterima adalah jpeg, png, jpg, atau gif.',
-            'foto_rumah.max' => 'Ukuran file foto KK tidak boleh lebih dari 2MB.',
+            'foto_rumah.max' => 'Ukuran file foto Rumah tidak boleh lebih dari 2MB.',
         ];
     }
 }
