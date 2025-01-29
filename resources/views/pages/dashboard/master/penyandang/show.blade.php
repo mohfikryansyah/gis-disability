@@ -140,7 +140,7 @@
                                     alt="Foto KK {{ $penyandang->nama }}">
                             </td>
                         </tr>
-                        @if ($penyandang->foto_usaha->isNotEmpty())
+                        @if ($penyandang->foto_usaha)
                             <tr>
                                 <th style="white-space: nowrap">
                                     Foto Diri
@@ -152,7 +152,7 @@
                                 </td>
                             </tr>
                         @endif
-                        @if ($penyandang->foto_rumah->isNotEmpty())
+                        @if ($penyandang->foto_rumah)
                             <tr>
                                 <th style="white-space: nowrap">
                                     Foto Diri
