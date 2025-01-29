@@ -116,17 +116,17 @@
                             </th>
                             <td class="text-end">
                                 <img class="" style="max-width: 50%"
-                                    src="{{ asset('storage/foto_diri/' . $penyandang->foto_diri) }}"
+                                    src="{{ asset('storage/public/foto_diri/' . $penyandang->foto_diri) }}"
                                     alt="Foto {{ $penyandang->nama }}">
                             </td>
                         </tr>
                         <tr>
                             <th style="white-space: nowrap">
-                                Foto KT
+                                Foto KTP
                             </th>
                             <td class="text-end">
                                 <img class="" style="max-width: 50%"
-                                    src="{{ asset('storage/foto_ktp/' . $penyandang->foto_ktp) }}"
+                                    src="{{ asset('storage/public/foto_ktp/' . $penyandang->foto_ktp) }}"
                                     alt="Foto KTP {{ $penyandang->nama }}">
                             </td>
                         </tr>
@@ -136,7 +136,7 @@
                             </th>
                             <td class="text-end">
                                 <img class="" style="max-width: 50%"
-                                    src="{{ asset('storage/foto_kk/' . $penyandang->foto_kk) }}"
+                                    src="{{ asset('storage/public/foto_kk/' . $penyandang->foto_kk) }}"
                                     alt="Foto KK {{ $penyandang->nama }}">
                             </td>
                         </tr>
@@ -147,7 +147,7 @@
                                 </th>
                                 <td class="text-end">
                                     <img class="" style="max-width: 50%"
-                                        src="{{ asset('storage/foto_usaha/' . $penyandang->foto_usaha) }}"
+                                        src="{{ asset('storage/public/foto_usaha/' . $penyandang->foto_usaha) }}"
                                         alt="Foto Usaha {{ $penyandang->nama }}">
                                 </td>
                             </tr>
@@ -159,7 +159,7 @@
                                 </th>
                                 <td class="text-end">
                                     <img class="" style="max-width: 50%"
-                                        src="{{ asset('storage/foto_rumah/' . $penyandang->foto_rumah) }}"
+                                        src="{{ asset('storage/public/foto_rumah/' . $penyandang->foto_rumah) }}"
                                         alt="Foto rumah {{ $penyandang->nama }}">
                                 </td>
                             </tr>
