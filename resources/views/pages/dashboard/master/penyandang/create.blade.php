@@ -121,6 +121,8 @@
                             <x-form.input type="file" name="foto_diri" label="Foto Penyandang" />
                             <x-form.input type="file" name="foto_ktp" label="Foto Kartu Tanda Penduduk" />
                             <x-form.input type="file" name="foto_kk" label="Foto Kartu Keluarga" />
+                            <x-form.input type="file" name="foto_usaha" label="Foto Usaha" />
+                            <x-form.input type="file" name="foto_rumah" label="Foto Rumah" />
                         </div>
                         <div class="pt-3">
                             <button type="submit" class="btn btn-primary">Submit</button>

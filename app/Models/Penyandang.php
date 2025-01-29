@@ -32,6 +32,8 @@ class Penyandang extends Model
         'foto_diri',
         'foto_ktp',
         'foto_kk',
+        'foto_usaha',
+        'foto_rumah',
         'district_id',
         'relawan_id',
     ];

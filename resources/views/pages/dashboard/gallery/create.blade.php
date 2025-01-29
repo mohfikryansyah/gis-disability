@@ -1,7 +1,7 @@
 @extends('layouts.dashboard', [
     'breadcrumbs' => [
         'Dashboard' => route('dashboard.index'),
-        'Kegiatan' => route('dashboard.gallery.index'),
+        'Gallery' => route('dashboard.gallery.index'),
         'Tambah Data' => '#',
     ],
 ])
@@ -17,7 +17,8 @@
 				<div class="card-body py-4-5 px-4">
 					<form action="{{ route('dashboard.gallery.store') }}" method="POST" enctype="multipart/form-data">
 						@csrf
-						<x-form.input type="file" name="fotos[]" label="Foto" class="multiple-files-filepond" :required="true" />
+						<x-form.input type="file" name="foto" label="Foto" class="multiple-files-filepond" :required="true" />
+						<x-form.input type="text" name="deskripsi" label="Deskripsi" :required="true" />
 						<div class="pt-3">
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>

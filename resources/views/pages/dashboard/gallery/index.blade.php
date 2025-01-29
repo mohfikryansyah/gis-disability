@@ -1,10 +1,10 @@
 @extends('layouts.dashboard', [
     'breadcrumbs' => [
         'Dashboard' => route('dashboard.index'),
-        'Kegiatan' => '#',
+        'Gallery' => '#',
     ],
 ])
-@section('title', 'Kegiatan')
+@section('title', 'Gallery')
 @push('css')
     <link rel="stylesheet" href="{{ asset('css/extensions/simple-datatable-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/extensions/table-datatable.css') }}">
@@ -28,6 +28,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Foto</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -42,14 +43,16 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <x-modal.confirm route="{{ route('dashboard.gallery.destroy', $gallery->id) }}" method="DELETE" id="delete" title="Apakah anda yakin untuk menghapus data ini?" color="danger" submit="Konfirmasi">
-											<x-slot:btn>
-												<i class="bi bi-x-circle"></i>
-												Delete
-											</x-slot>
-											Tekan <b>KONFIRMASI</b> untuk setuju
-										</x-modal.confirm>
-										
+                                        <p>{{ $gallery->deskripsi }}</p>
+                                    </td>
+                                    <td>
+                                        <x-form.delete :id="$gallery->id" :action="route('dashboard.gallery.destroy', $gallery->id)" label="ini" text="Hapus" />
+                                        <a href="{{ route('dashboard.gallery.edit', $gallery->id) }}"
+                                            class="btn btn-warning btn-sm">
+                                            <i class="bi bi-pencil-square"></i>
+                                            Edit
+                                        </a>
+
                                     </td>
                                 </tr>
                             @endforeach

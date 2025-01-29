@@ -119,6 +119,8 @@
 							<x-form.input type="file" name="foto_diri" label="Foto Penyandang" addon-label='<i class="bi bi-image-fill"></i>' :addon-link="asset('storage/foto_diri/' . $penyandang->foto_diri)" />
 							<x-form.input type="file" name="foto_ktp" label="Foto Kartu Tanda Penduduk" addon-label='<i class="bi bi-image-fill"></i>' :addon-link="asset('storage/foto_ktp/' . $penyandang->foto_ktp)" />
 							<x-form.input type="file" name="foto_kk" label="Foto Kartu Keluarga" addon-label='<i class="bi bi-image-fill"></i>' :addon-link="asset('storage/foto_kk/' . $penyandang->foto_kk)" />
+							<x-form.input type="file" name="foto_usaha" label="Foto Usaha" addon-label='<i class="bi bi-image-fill"></i>' :addon-link="asset('storage/foto_usaha/' . $penyandang->foto_usaha)" />
+							<x-form.input type="file" name="foto_rumah" label="Foto Rumah" addon-label='<i class="bi bi-image-fill"></i>' :addon-link="asset('storage/foto_rumah/' . $penyandang->foto_rumah)" />
 						</div>
 						<div class="pt-3">
 							<button type="submit" class="btn btn-primary">Submit</button>

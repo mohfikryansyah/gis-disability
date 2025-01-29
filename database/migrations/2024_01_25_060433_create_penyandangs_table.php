@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('jenis_kelamin', 9);
             $table->string('tanggal');
             $table->string('kontak', 12);
+            $table->string('foto_usaha');
+            $table->string('foto_rumah');
             $table->string('foto_diri');
             $table->string('foto_ktp');
             $table->string('nik', 16);

@@ -1,29 +1,28 @@
 @extends('layouts.dashboard', [
     'breadcrumbs' => [
         'Dashboard' => route('dashboard.index'),
-        'Kegiatan' => route('dashboard.activity.index'),
+        'Gallery' => route('dashboard.gallery.edit'),
         'Edit' => '#',
     ],
 ])
-@section('title', 'Edit Kegiatan')
+@section('title', 'Edit Gallery')
 @section('content')
     <section class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body py-4-5 px-4">
                     <div class="d-flex justify-content-end mb-4 gap-2">
-                        <a href="{{ route('dashboard.activity.show', $activity->uuid) }}" class="btn btn-success btn-sm">
+                        <a href="{{ route('dashboard.gallery.update', $gallery->id) }}" class="btn btn-success btn-sm">
                             <i class="bi bi-list-ul"></i>
                             Detail
                         </a>
-                        <x-form.delete :id="$activity->uuid" :action="route('dashboard.activity.destroy', $activity->uuid)" :label="$activity->nama" text="Hapus" />
+                        <x-form.delete :id="$gallery->id" :action="route('dashboard.gallery.destroy', $gallery->id)" :label="$gallery->nama" text="Hapus" />
                     </div>
-                    <form action="{{ route('dashboard.activity.update', $activity->uuid) }}" method="POST">
+                    <form action="{{ route('dashboard.gallery.update', $gallery->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <x-form.input name="name" label="Nama Kegiatan" :value="$activity->name" />
-                        <x-form.input name="location" label="Lokasi" :value="$activity->location" />
-                        <x-form.input type="date" name="tanggal" label="Tanggal" :value="$activity->tanggal" />
+                        <x-form.input type="file" name="foto" label="Foto" addon-label='<i class="bi bi-image-fill"></i>' :addon-link="asset('storage/' . $gallery->file_path)" />
+                        <x-form.input name="deskripsi" label="Deskripsi" :value="$gallery->deskripsi" :required="true" />
                         <div class="pt-3">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

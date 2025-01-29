@@ -31,24 +31,23 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fotos.*' => 'required|mimes:png,jpg,jpeg|file|max:1024'
+            'foto' => 'required|mimes:png,jpg,jpeg|file|max:1024',
+            'deskripsi' => 'required|max:200',
         ]);
 
-        $savedPaths = [];
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $path = $file->store('gallery', 'public');
 
-        if ($request->hasFile('fotos')) {
-            foreach ($request->file('fotos') as $file) {
-                $path = $file->store('gallery', 'public');
-                $savedPaths[] = $path;
-
-                $photo = new Gallery();
-                $photo->file_path = $path;
-                $photo->save();
-            }
+            $photo = new Gallery();
+            $photo->file_path = $path;
+            $photo->deskripsi = $request->deskripsi;
+            $photo->save();
         }
 
         return redirect()->route('dashboard.gallery.index')->with('success', 'Foto berhasil diunggah!');
     }
+
 
     /**
      * Display the specified resource.
@@ -63,15 +62,36 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        $gallery = Gallery::findOrFail($gallery->id);
+        return view('pages.dashboard.gallery.edit', compact('gallery'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'foto' => 'nullable|mimes:png,jpg,jpeg|file|max:1024',
+            'deskripsi' => 'sometimes|string|max:200'
+        ]);
+
+        $gallery = Gallery::findOrFail($id);
+
+        if ($request->hasFile('foto')) {
+            if ($gallery->file_path && Storage::disk('public')->exists($gallery->file_path)) {
+                Storage::disk('public')->delete($gallery->file_path);
+            }
+
+            $path = $request->file('foto')->store('gallery', 'public');
+
+            $gallery->file_path = $path;
+        }
+
+        $gallery->deskripsi = $request->deskripsi;
+        $gallery->save();
+
+        return redirect()->route('dashboard.gallery.index')->with('success', 'Foto dan deskripsi berhasil diperbarui!');
     }
 
     /**
@@ -81,12 +101,10 @@ class GalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
 
-        // Hapus file dari storage
         if (Storage::exists($gallery->file_path)) {
             Storage::delete($gallery->file_path);
         }
 
-        // Hapus data dari database
         $gallery->delete();
 
         return redirect()->route('dashboard.gallery.index')->with('success', 'Foto berhasil dihapus!');

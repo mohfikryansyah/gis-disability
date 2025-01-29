@@ -39,6 +39,8 @@ class PenyandangController extends Controller
             $foto_diri = $request->file('foto_diri')->store('public/foto_diri');
             $foto_ktp = $request->file('foto_ktp')->store('public/foto_ktp');
             $foto_kk = $request->file('foto_kk')->store('public/foto_kk');
+            $foto_usaha = $request->file('foto_usaha')->store('public/foto_usaha');
+            $foto_rumah = $request->file('foto_rumah')->store('public/foto_rumah');
 
             Penyandang::create([
                 'relawan_id' => $request->relawan_id,
@@ -62,6 +64,8 @@ class PenyandangController extends Controller
                 'foto_diri' => basename($foto_diri),
                 'foto_ktp' => basename($foto_ktp),
                 'foto_kk' => basename($foto_kk),
+                'foto_usaha' => basename($foto_usaha),
+                'foto_rumah' => basename($foto_rumah),
             ]);
 
             return redirect()->route("dashboard.master.penyandang.index")->with('success', 'Data berhasil ditambahkan.');
@@ -102,6 +106,14 @@ class PenyandangController extends Controller
                 $foto_kk = basename($request->file('foto_kk')->store('public/foto_kk'));
             }
 
+            if ($request->has('foto_usaha')) {
+                $foto_usaha = basename($request->file('foto_usaha')->store('public/foto_usaha'));
+            }
+
+            if ($request->has('foto_rumah')) {
+                $foto_rumah = basename($request->file('foto_rumah')->store('public/foto_rumah'));
+            }
+
             $penyandang->nama = $request->nama;
             $penyandang->no_induk_disabilitas = $request->no_induk_disabilitas;
             $penyandang->nik = $request->nik;
@@ -122,6 +134,8 @@ class PenyandangController extends Controller
             $penyandang->foto_diri = $foto_diri ?? $penyandang->foto_diri;
             $penyandang->foto_ktp = $foto_ktp ?? $penyandang->foto_ktp;
             $penyandang->foto_kk = $foto_kk ?? $penyandang->foto_kk;
+            $penyandang->foto_usaha = $foto_usaha ?? $penyandang->foto_usaha;
+            $penyandang->foto_rumah = $foto_rumah ?? $penyandang->foto_rumah;
 
             $penyandang->save();
 
