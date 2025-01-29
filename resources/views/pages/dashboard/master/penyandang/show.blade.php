@@ -140,6 +140,30 @@
                                     alt="Foto KK {{ $penyandang->nama }}">
                             </td>
                         </tr>
+                        @if ($penyandang->foto_usaha->isNotEmpty())
+                            <tr>
+                                <th style="white-space: nowrap">
+                                    Foto Diri
+                                </th>
+                                <td class="text-end">
+                                    <img class="" style="max-width: 50%"
+                                        src="{{ asset('storage/foto_usaha/' . $penyandang->foto_usaha) }}"
+                                        alt="Foto Usaha {{ $penyandang->nama }}">
+                                </td>
+                            </tr>
+                        @endif
+                        @if ($penyandang->foto_rumah->isNotEmpty())
+                            <tr>
+                                <th style="white-space: nowrap">
+                                    Foto Diri
+                                </th>
+                                <td class="text-end">
+                                    <img class="" style="max-width: 50%"
+                                        src="{{ asset('storage/foto_rumah/' . $penyandang->foto_rumah) }}"
+                                        alt="Foto rumah {{ $penyandang->nama }}">
+                                </td>
+                            </tr>
+                        @endif
                     </table>
                 </div>
             </div>
