@@ -34,7 +34,7 @@ class ActivityController extends Controller
 
             foreach ($request->documentations as $documentation) {
                 Documentation::create([
-                    'name' => basename($documentation->store('public/documentations')),
+                    'name' => basename($documentation->store('documentations', 'public')),
                     'activity_id' => $activity->id
                 ]);
             }
