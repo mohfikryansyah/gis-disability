@@ -15,7 +15,7 @@ class PenyandangController extends Controller
         $query = Penyandang::query();
 
         if (auth()->user()->isRelawan()) {
-        $query->where('district_id', auth()->user()->relawan->district_id);
+            $query->where('district_id', auth()->user()->relawan->district_id);
         }
 
         $penyandang = $query->get();
@@ -35,12 +35,13 @@ class PenyandangController extends Controller
 
     public function store(StorePenyandangRequest $request)
     {
+        // dd($request->all());
         try {
             $foto_diri = $request->file('foto_diri')->store('public/foto_diri');
             $foto_ktp = $request->file('foto_ktp')->store('public/foto_ktp');
             $foto_kk = $request->file('foto_kk')->store('public/foto_kk');
-            $foto_usaha = $request->file('foto_usaha')->store('public/foto_usaha');
-            $foto_rumah = $request->file('foto_rumah')->store('public/foto_rumah');
+            $foto_usaha = $request->hasFile('foto_usaha') ? $request->file('foto_usaha')->store('public/foto_usaha') : null;
+            $foto_rumah = $request->hasFile('foto_rumah') ? $request->file('foto_rumah')->store('public/foto_rumah') : null;
 
             Penyandang::create([
                 'relawan_id' => $request->relawan_id,
@@ -64,8 +65,8 @@ class PenyandangController extends Controller
                 'foto_diri' => basename($foto_diri),
                 'foto_ktp' => basename($foto_ktp),
                 'foto_kk' => basename($foto_kk),
-                'foto_usaha' => basename($foto_usaha),
-                'foto_rumah' => basename($foto_rumah),
+                'foto_usaha' => $foto_usaha ? basename($foto_usaha) : null,
+                'foto_rumah' => $foto_rumah ? basename($foto_rumah) : null,
             ]);
 
             return redirect()->route("dashboard.master.penyandang.index")->with('success', 'Data berhasil ditambahkan.');
@@ -76,7 +77,7 @@ class PenyandangController extends Controller
 
     public function show(Penyandang $penyandang)
     {
-        if(auth()->user()->isRelawan()) {
+        if (auth()->user()->isRelawan()) {
             if ($penyandang->district_id != auth()->user()->relawan->district_id) {
                 return redirect()->back()->withErrors('Akses tidak sah.');
             }
