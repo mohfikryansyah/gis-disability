@@ -37,11 +37,11 @@ class PenyandangController extends Controller
     {
         // dd($request->all());
         try {
-            $foto_diri = $request->file('foto_diri')->store('/public/foto_diri');
-            $foto_ktp = $request->file('foto_ktp')->store('/public/foto_ktp');
-            $foto_kk = $request->file('foto_kk')->store('/public/foto_kk');
-            $foto_usaha = $request->hasFile('foto_usaha') ? $request->file('foto_usaha')->store('/public/foto_usaha') : null;
-            $foto_rumah = $request->hasFile('foto_rumah') ? $request->file('foto_rumah')->store('/public/foto_rumah') : null;
+            $foto_diri = $request->file('foto_diri')->store('public/public/foto_diri');
+            $foto_ktp = $request->file('foto_ktp')->store('public/public/foto_ktp');
+            $foto_kk = $request->file('foto_kk')->store('public/public/foto_kk');
+            $foto_usaha = $request->hasFile('foto_usaha') ? $request->file('foto_usaha')->store('public/public/foto_usaha') : null;
+            $foto_rumah = $request->hasFile('foto_rumah') ? $request->file('foto_rumah')->store('public/public/foto_rumah') : null;
 
             Penyandang::create([
                 'relawan_id' => $request->relawan_id,
