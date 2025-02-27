@@ -2,80 +2,81 @@
 	$_RELAWAN = App\Constants\UserRole::RELAWAN;
 	$_ADMIN = App\Constants\UserRole::ADMIN;
 	$_MANAGER = App\Constants\UserRole::MANAGER;
-	$role = App\Utils\AuthUtils::getRole(auth()->user());
+	// $role = App\Utils\AuthUtils::getRole(auth()->user());
+
 
 	$links = [
 	    (object) [
 	        'title' => 'Menu',
 	        'items' => [
+	            // (object) [
+	            //     'label' => 'Dasbor',
+	            //     'icon' => 'bi bi-grid-fill',
+	            //     'hasSubItems' => false,
+	            //     'link' => route('dashboard.index'),
+	            // ],
 	            (object) [
-	                'label' => 'Dasbor',
-	                'icon' => 'bi bi-grid-fill',
-	                'hasSubItems' => false,
-	                'link' => route('dashboard.index'),
-	            ],
-	            (object) [
-	                'roles' => [$_ADMIN],
+	                // 'roles' => [$_ADMIN],
 	                'label' => 'Master',
 	                'icon' => 'bi bi-database-fill',
 	                'hasSubItems' => true,
 	                'subItems' => [
-	                    (object) [
-	                        'label' => 'Relawan',
-	                        'link' => route('dashboard.master.relawan.index'),
-	                    ],
+	                    // (object) [
+	                    //     'label' => 'Relawan',
+	                    //     'link' => route('dashboard.master.relawan.index'),
+	                    // ],
 	                    (object) [
 	                        'label' => 'Penyandang',
 	                        'link' => route('dashboard.master.penyandang.index'),
 	                    ],
 	                ],
 	            ],
-	            (object) [
-	                'roles' => [$_RELAWAN],
-	                'label' => 'Penyandang',
-	                'icon' => 'bi bi-people-fill',
-	                'hasSubItems' => false,
-	                'link' => route('dashboard.penyandang.index'),
-	            ],
-	            (object) [
-	                'label' => 'Persebaran',
-	                'icon' => 'bi bi-map-fill',
-	                'hasSubItems' => false,
-	                'link' => route('dashboard.persebaran.index'),
-	            ],
-	            (object) [
-	                'label' => 'Bantuan',
-	                'icon' => 'bi bi-hand-thumbs-up-fill',
-	                'hasSubItems' => false,
-	                'link' => route('dashboard.bantuan.index'),
-	            ],
-							(object) [
-									'roles' => [$_RELAWAN],
-	                'label' => 'Kegiatan',
-	                'icon' => 'bi bi-person-video2',
-	                'hasSubItems' => false,
-	                'link' => route('dashboard.activity.index'),
-	            ],
-				(object) [
-	                'roles' => [$_ADMIN],
-	                'label' => 'Galeri',
-	                'icon' => 'bi bi-people-fill',
-	                'hasSubItems' => false,
-	                'link' => route('dashboard.gallery.index'),
-	            ],
+	            // (object) [
+	            //     'roles' => [$_RELAWAN],
+	            //     'label' => 'Penyandang',
+	            //     'icon' => 'bi bi-people-fill',
+	            //     'hasSubItems' => false,
+	            //     'link' => route('dashboard.penyandang.index'),
+	            // ],
+	            // (object) [
+	            //     'label' => 'Persebaran',
+	            //     'icon' => 'bi bi-map-fill',
+	            //     'hasSubItems' => false,
+	            //     'link' => route('dashboard.persebaran.index'),
+	            // ],
+	            // (object) [
+	            //     'label' => 'Bantuan',
+	            //     'icon' => 'bi bi-hand-thumbs-up-fill',
+	            //     'hasSubItems' => false,
+	            //     'link' => route('dashboard.bantuan.index'),
+	            // ],
+				// 			(object) [
+				// 					'roles' => [$_RELAWAN],
+	            //     'label' => 'Kegiatan',
+	            //     'icon' => 'bi bi-person-video2',
+	            //     'hasSubItems' => false,
+	            //     'link' => route('dashboard.activity.index'),
+	            // ],
+				// (object) [
+	            //     'roles' => [$_ADMIN],
+	            //     'label' => 'Galeri',
+	            //     'icon' => 'bi bi-people-fill',
+	            //     'hasSubItems' => false,
+	            //     'link' => route('dashboard.gallery.index'),
+	            // ],
 	        ],
 	    ],
-	    (object) [
-	        'title' => 'Lainnya',
-	        'items' => [
-	            (object) [
-	                'label' => 'Keamanan',
-	                'icon' => 'bi bi-lock-fill',
-	                'hasSubItems' => false,
-	                'link' => route('dashboard.security.index'),
-	            ],
-	        ],
-	    ],
+	    // (object) [
+	    //     'title' => 'Lainnya',
+	    //     'items' => [
+	    //         (object) [
+	    //             'label' => 'Keamanan',
+	    //             'icon' => 'bi bi-lock-fill',
+	    //             'hasSubItems' => false,
+	    //             'link' => route('dashboard.security.index'),
+	    //         ],
+	    //     ],
+	    // ],
 	];
 @endphp
 
@@ -119,10 +120,10 @@
 		<div class="sidebar-menu">
 			<ul class="menu mt-0">
 				@foreach ($links as $link)
-					@if ((isset($link->roles) && in_array($role, $link->roles)) || !isset($link->roles))
+					{{-- @if ((isset($link->roles) && in_array($role, $link->roles)) || !isset($link->roles)) --}}
 						<li class="sidebar-title">{{ $link->title }}</li>
 						@foreach ($link->items as $item)
-							@if ((isset($item->roles) && in_array($role, $item->roles)) || !isset($item->roles))
+							{{-- @if ((isset($item->roles) && in_array($role, $item->roles)) || !isset($item->roles)) --}}
 								@if ($item->hasSubItems)
 									<li class="sidebar-item has-sub">
 										<a href="#" class='sidebar-link'>
@@ -147,11 +148,11 @@
 										</a>
 									</li>
 								@endif
-							@endif
+							{{-- @endif --}}
 						@endforeach
-					@endif
+					{{-- @endif --}}
 				@endforeach
-				<form id="logoutForm" action="{{ route('auth.logout') }}" method="POST">
+				{{-- <form id="logoutForm" action="{{ route('auth.logout') }}" method="POST">
 					@csrf
 					<li class="sidebar-item">
 						<a href="javascript::void" class="sidebar-link" onclick="document.getElementById('logoutForm').submit();">
@@ -159,7 +160,7 @@
 							<span>Keluar</span>
 						</a>
 					</li>
-				</form>
+				</form> --}}
 			</ul>
 		</div>
 	</div>

@@ -30,11 +30,14 @@ Route::prefix('export')->name('export.')->middleware('auth')->group(function () 
     Route::post('/bantuan', [PimpinanExportController::class, 'ExportBantuan'])->name('pimpinan.bantuan');
 });
 
+Route::get('/dashboard/master/v2/penyandang', [PenyandangController::class, 'create'])->name('dashboard.master.penyandang.create');
+Route::post('/dashboard/master/v2/penyandang', [PenyandangController::class, 'store'])->name('dashboard.master.penyandang.store');
+
 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::prefix('master')->name('master.')->middleware(['roles:' . UserRole::ADMIN])->group(function () {
         Route::resource('/relawan', RelawanController::class)->names('relawan');
-        Route::resource('/penyandang', PenyandangController::class)->names('penyandang');
+        Route::resource('/penyandang', PenyandangController::class)->names('penyandang')->except('create', 'store');
     });
     Route::get('/penyandang', [PenyandangController::class, 'index'])->name('penyandang.index');
     Route::get('/penyandang/{penyandang}', [PenyandangController::class, 'show'])->name('penyandang.show');
