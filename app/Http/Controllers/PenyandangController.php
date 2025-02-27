@@ -51,6 +51,7 @@ class PenyandangController extends Controller
                 'nik' => $request->nik,
                 'no_kk' => $request->no_kk,
                 'jenis_kelamin' => $request->jenis_kelamin,
+                'masa_pendidikan' => $request->masa_pendidikan,
                 'pendidikan_terakhir' => $request->pendidikan_terakhir,
                 'status_pernikahan' => $request->status_pernikahan,
                 'keterampilan' => $request->keterampilan,
@@ -121,6 +122,7 @@ class PenyandangController extends Controller
             $penyandang->nik = $request->nik;
             $penyandang->no_kk = $request->no_kk;
             $penyandang->jenis_kelamin = $request->jenis_kelamin;
+            $penyandang->masa_pendidikan = $request->masa_pendidikan;
             $penyandang->pendidikan_terakhir = $request->pendidikan_terakhir;
             $penyandang->status_pernikahan = $request->status_pernikahan;
             $penyandang->keterampilan = $request->keterampilan;

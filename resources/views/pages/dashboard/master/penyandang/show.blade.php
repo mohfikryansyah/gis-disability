@@ -48,6 +48,10 @@
                             <td>{{ $penyandang->jenis_kelamin }}</td>
                         </tr>
                         <tr>
+                            <th>Masa Pendidikan</th>
+                            <td>{{ $penyandang->masa_pendidikan }}</td>
+                        </tr>
+                        <tr>
                             <th>Pendidikan Terakhir</th>
                             <td>{{ $penyandang->pendidikan_terakhir }}</td>
                         </tr>

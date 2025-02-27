@@ -43,15 +43,22 @@
                                     'value' => App\Constants\UserGender::FEMALE,
                                 ],
                             ]" />
+                            <x-form.select name="masa_pendidikan" label="Sedang Masa Pendidikan" :value="$penyandang->masa_pendidikan"
+                                :options="[
+                                    (object) [
+                                        'label' => 'Ya',
+                                        'value' => 'Ya',
+                                    ],
+                                    (object) [
+                                        'label' => 'Tidak',
+                                        'value' => 'Tidak',
+                                    ],
+                                ]" />
                             <x-form.select name="pendidikan_terakhir" label="Pendidikan Terakhir" :value="$penyandang->pendidikan_terakhir"
                                 :options="[
                                     (object) [
                                         'label' => 'Tidak Sekolah',
                                         'value' => 'Tidak Sekolah',
-                                    ],
-                                    (object) [
-                                        'label' => 'Sedang Bersekolah',
-                                        'value' => 'Sedang Bersekolah',
                                     ],
                                     (object) [
                                         'label' => 'SD',

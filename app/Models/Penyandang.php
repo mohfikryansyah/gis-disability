@@ -18,6 +18,7 @@ class Penyandang extends Model
         'nik',
         'no_kk',
         'jenis_kelamin',
+        'masa_pendidikan',
         'pendidikan_terakhir',
         'status_pernikahan',
         'keterampilan',

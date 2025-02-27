@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('no_kk', 16);
             $table->string('alamat');
             $table->string('jenis_disabilitas', 50)->nullable();
+            $table->string('masa_pendidikan', 50);
             $table->string('pendidikan_terakhir', 50);
             $table->string('keterampilan', 50)->nullable();
             $table->string('usaha', 50)->nullable();
