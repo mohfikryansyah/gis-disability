@@ -60,8 +60,9 @@ class PenyandangController extends Controller
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
                 'jenis_disabilitas' => $request->jenis_disabilitas,
-                'keterangan_meninggal' => $request->keterangan_meninggal,
-                'keterangan_sembuh' => $request->keterangan_sembuh,
+                // 'keterangan_meninggal' => $request->keterangan_meninggal,
+                // 'keterangan_sembuh' => $request->keterangan_sembuh,
+                'keterangan' => $request->keterangan,
                 'foto_diri' => basename($foto_diri),
                 'foto_ktp' => basename($foto_ktp),
                 'foto_kk' => basename($foto_kk),
@@ -130,8 +131,9 @@ class PenyandangController extends Controller
             $penyandang->latitude = $request->latitude;
             $penyandang->longitude = $request->longitude;
             $penyandang->jenis_disabilitas = $request->jenis_disabilitas;
-            $penyandang->keterangan_meninggal = $request->keterangan_meninggal;
-            $penyandang->keterangan_sembuh = $request->keterangan_sembuh;
+            // $penyandang->keterangan_meninggal = $request->keterangan_meninggal;
+            // $penyandang->keterangan_sembuh = $request->keterangan_sembuh;
+            $penyandang->keterangan = $request->keterangan;
             $penyandang->foto_diri = $foto_diri ?? $penyandang->foto_diri;
             $penyandang->foto_ktp = $foto_ktp ?? $penyandang->foto_ktp;
             $penyandang->foto_kk = $foto_kk ?? $penyandang->foto_kk;

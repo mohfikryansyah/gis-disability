@@ -30,8 +30,9 @@ return new class extends Migration
             $table->string('status_pernikahan', 50);
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('keterangan_meninggal', 50)->nullable();
-            $table->string('keterangan_sembuh', 50)->nullable();
+            // $table->string('keterangan_meninggal', 50)->nullable();
+            // $table->string('keterangan_sembuh', 50)->nullable();
+            $table->string('keterangan', 50)->nullable();
             $table->foreignId('district_id')->constrained('districts')->onDelete('cascade');
             $table->foreignId('relawan_id')->constrained('relawans')->onDelete('cascade');
             $table->timestamps();

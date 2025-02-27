@@ -45,6 +45,10 @@
                                     'value' => 'Tidak Sekolah',
                                 ],
                                 (object) [
+                                    'label' => 'Sedang Bersekolah',
+                                    'value' => 'Sedang Bersekolah',
+                                ],
+                                (object) [
                                     'label' => 'SD',
                                     'value' => 'SD',
                                 ],
@@ -113,8 +117,22 @@
                         <div class="mb-5">
                             <h5>Disabilitas</h5>
                             <x-form.input type="text" name="jenis_disabilitas" label="Jenis Disabilitas" />
-                            <x-form.input type="text" name="keterangan_meninggal" label="Keterangan Meninggal" />
-                            <x-form.input type="text" name="keterangan_sembuh" label="Keterangan Sembuh" />
+                            {{-- <x-form.input type="text" name="keterangan_meninggal" label="Keterangan Meninggal" />
+                            <x-form.input type="text" name="keterangan_sembuh" label="Keterangan Sembuh" /> --}}
+                            <x-form.select name="keterangan" label="Keterangan" :options="[
+                                (object) [
+                                    'label' => 'Sembuh',
+                                    'value' => 'Sembuh',
+                                ],
+                                (object) [
+                                    'label' => 'Belum Sembuh',
+                                    'value' => 'Belum Sembuh',
+                                ],
+                                (object) [
+                                    'label' => 'Meninggal',
+                                    'value' => 'Meninggal', 
+                                ],
+                            ]" />
                         </div>
                         <div>
                             <h5>Upload</h5>

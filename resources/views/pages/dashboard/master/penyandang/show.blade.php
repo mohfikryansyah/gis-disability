@@ -94,13 +94,13 @@
                             <td>{{ $penyandang->jenis_disabilitas }}</td>
                         </tr>
                         <tr>
-                            <th>Keterangan Meninggal</th>
-                            <td>{{ $penyandang->keterangan_meninggal }}</td>
+                            <th>Keterangan</th>
+                            <td>{{ $penyandang->keterangan }}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <th>Keterangan Sembuh</th>
                             <td>{{ $penyandang->keterangan_sembuh }}</td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </div>
             </div>
