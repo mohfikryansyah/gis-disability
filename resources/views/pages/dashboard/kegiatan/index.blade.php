@@ -1,4 +1,4 @@
-$@php
+@php
     $_RELAWAN = App\Constants\UserRole::RELAWAN;
     $_ADMIN = App\Constants\UserRole::ADMIN;
     $_MANAGER = App\Constants\UserRole::MANAGER;
@@ -20,15 +20,17 @@ $@php
     <section class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header d-flex justify-content-between pb-0">
-                    <a href="{{ route('dashboard.activity.create') }}" class="btn btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
-                            stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <span class="ms-1">Tambah Kegiatan</span>
-                    </a>
-                </div>
+                @if ($_RELAWAN == $role)
+                    <div class="card-header d-flex justify-content-between pb-0">
+                        <a href="{{ route('dashboard.activity.create') }}" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                stroke="currentColor" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                            <span class="ms-1">Tambah Kegiatan</span>
+                        </a>
+                    </div>
+                @endif
                 @if ($_ADMIN == $role)
                     <div class="card-body py-4-5 table-responsive px-4">
                         <table class="table-striped table" id="tabel-tasks">
