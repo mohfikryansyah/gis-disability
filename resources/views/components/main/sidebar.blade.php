@@ -50,8 +50,8 @@
 	                'hasSubItems' => false,
 	                'link' => route('dashboard.bantuan.index'),
 	            ],
-							(object) [
-									'roles' => [$_RELAWAN],
+				(object) [
+					'roles' => [$_RELAWAN, $_ADMIN],
 	                'label' => 'Kegiatan',
 	                'icon' => 'bi bi-person-video2',
 	                'hasSubItems' => false,

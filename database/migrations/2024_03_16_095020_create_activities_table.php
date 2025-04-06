@@ -13,6 +13,7 @@ return new class extends Migration
             $table->uuid('uuid')->unique();
             $table->string('name', 64);
             $table->string('location', 64);
+            $table->string('tanggal');
             $table->foreignId('relawan_id')->constrained('relawans')->onDelete('cascade');
             $table->timestamps();
         });

@@ -11,7 +11,11 @@ class ActivityController extends Controller
 {
     public function index()
     {
-        $activities = Activity::where('relawan_id', auth()->user()->relawan->id)->get();
+        if(auth()->user()->isRelawan()) {
+            $activities = Activity::where('relawan_id', auth()->user()->relawan->id)->get();
+        } else {
+            $activities = Activity::with('relawan.user')->get();
+        }
 
         return view('pages.dashboard.kegiatan.index', compact('activities'));
     }
