@@ -37,7 +37,7 @@
                             <td>{{ $activity->location }}</td>
                         </tr>
                         <tr>
-                            <th>Lokasi</th>
+                            <th>Tanggal</th>
                             <td>{{ $activity->tanggal }}</td>
                         </tr>
                         <tr>
