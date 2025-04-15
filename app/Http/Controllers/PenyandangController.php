@@ -40,8 +40,8 @@ class PenyandangController extends Controller
             $foto_diri = $request->file('foto_diri')->store('public/public/foto_diri');
             $foto_ktp = $request->file('foto_ktp')->store('public/public/foto_ktp');
             $foto_kk = $request->file('foto_kk')->store('public/public/foto_kk');
-            $foto_usaha = $request->hasFile('foto_usaha') ? $request->file('foto_usaha')->store('public/public/foto_usaha') : null;
-            $foto_rumah = $request->hasFile('foto_rumah') ? $request->file('foto_rumah')->store('public/public/foto_rumah') : null;
+            $foto_usaha = $request->hasFile('foto_usaha') ? $request->file('foto_usaha')->store('public/public/foto_usaha', 'public') : null;
+            $foto_rumah = $request->hasFile('foto_rumah') ? $request->file('foto_rumah')->store('public/public/foto_rumah', 'public') : null;
 
             Penyandang::create([
                 'relawan_id' => $request->relawan_id,
@@ -98,23 +98,23 @@ class PenyandangController extends Controller
     {
         try {
             if ($request->has('foto_diri')) {
-                $foto_diri = basename($request->file('foto_diri')->store('public/foto_diri'));
+                $foto_diri = basename($request->file('foto_diri')->store('public/foto_diri', 'public'));
             }
 
             if ($request->has('foto_ktp')) {
-                $foto_ktp = basename($request->file('foto_ktp')->store('public/foto_ktp'));
+                $foto_ktp = basename($request->file('foto_ktp')->store('public/foto_ktp', 'public'));
             }
 
             if ($request->has('foto_kk')) {
-                $foto_kk = basename($request->file('foto_kk')->store('public/foto_kk'));
+                $foto_kk = basename($request->file('foto_kk')->store('public/foto_kk', 'public'));
             }
 
             if ($request->has('foto_usaha')) {
-                $foto_usaha = basename($request->file('foto_usaha')->store('public/foto_usaha'));
+                $foto_usaha = basename($request->file('foto_usaha')->store('public/foto_usaha', 'public'));
             }
 
             if ($request->has('foto_rumah')) {
-                $foto_rumah = basename($request->file('foto_rumah')->store('public/foto_rumah'));
+                $foto_rumah = basename($request->file('foto_rumah')->store('public/foto_rumah', 'public'));
             }
 
             $penyandang->nama = $request->nama;

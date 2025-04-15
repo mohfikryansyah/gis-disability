@@ -1,7 +1,7 @@
 @extends('layouts.dashboard', [
     'breadcrumbs' => [
         'Dashboard' => route('dashboard.index'),
-        'Gallery' => route('dashboard.gallery.edit'),
+        'Gallery' => route('dashboard.gallery.index'),
         'Edit' => '#',
     ],
 ])
