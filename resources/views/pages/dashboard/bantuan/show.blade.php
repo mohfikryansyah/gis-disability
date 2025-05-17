@@ -83,8 +83,11 @@
                             <th>Bukti Penerimaan</th>
                             <td>
                                 @if ($bantuan->bukti)
-                                    <img src="{{ asset('/storage/public/bukti/' . $bantuan->bukti) }}" alt="Dokumentasi"
-                                        class="w-100 border border-2" height="100" style="object-fit: cover;">
+                                    <a href="{{ asset('/storage/public/bukti/' . $bantuan->bukti) }}" target="_blank">
+                                        <img src="{{ asset('/storage/public/bukti/' . $bantuan->bukti) }}"
+                                            alt="Dokumentasi" class="w-100 border border-2" height="100"
+                                            style="object-fit: cover;">
+                                    </a>
                                 @else
                                     <span class="text-danger">Belum ada bukti</span>
                                 @endif
