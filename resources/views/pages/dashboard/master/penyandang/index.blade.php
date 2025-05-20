@@ -26,7 +26,7 @@
                             <span class="ms-1">Tambah Penyandang</span>
                         </a>
                     @endif
-                    @if (auth()->user()->isRelawan() || auth()->user()->isAdmin())
+                    {{-- @if (auth()->user()->isRelawan() || auth()->user()->isAdmin())
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportModal" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-cloud-download" viewBox="0 0 16 16">
@@ -40,9 +40,9 @@
                         <x-modal id="exportModal" title="Export Excel" form="export_penyandang" button="Export">
                             <form action="{{ route('export.relawan.penyandang') }}" method="post" id="export_penyandang">
                                 @csrf
-                                {{-- <x-form.select name="penyandang_id" label="Penyandang" :options="$penyandang->map(function ($penyandang) {
+                                <x-form.select name="penyandang_id" label="Penyandang" :options="$penyandang->map(function ($penyandang) {
                                     return (object) ['label' => $penyandang->nama, 'value' => $penyandang->id];
-                                })" /> --}}
+                                })" />
                                 @if (auth()->user()->isRelawan())
                                     <h5>Seluruh data penyandang akan diexport ke excel.</h5>
                                 @endif
@@ -56,7 +56,7 @@
                                 @endif
                             </form>
                         </x-modal>
-                    @endif
+                    @endif --}}
                 </div>
                 <div class="card-body py-4-5 table-responsive px-4">
                     <table class="table-striped table" id="tabel-tasks">

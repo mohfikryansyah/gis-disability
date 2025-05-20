@@ -23,7 +23,7 @@
                             <span class="ms-1">Tambah Bantuan</span>
                         </a>
                     @endif
-                    @if (auth()->user()->isManager())
+                    {{-- @if (auth()->user()->isManager())
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportModal" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-cloud-download" viewBox="0 0 16 16">
@@ -48,7 +48,7 @@
                                 })" />
                             </form>
                         </x-modal>
-                    @endif
+                    @endif --}}
                 </div>
                 <div class="card-body py-4-5 table-responsive px-4">
                     <table class="table-striped table" id="tabel-tasks">
