@@ -80,7 +80,7 @@
                             <td>{{ $bantuan->detail }}</td>
                         </tr>
                         <tr>
-                            <th>Bukti Penerimaan</th>
+                            <th>Dokumentasi</th>
                             <td>
                                 @if ($bantuan->bukti)
                                     <a href="{{ asset('/storage/public/bukti/' . $bantuan->bukti) }}" target="_blank">
