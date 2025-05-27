@@ -251,35 +251,6 @@
             }
         });
 
-        relawanSelect.addEventListener('change', function() {
-            const relawanId = this.value;
-
-            if (relawanId) {
-                const selectedRelawan = relawanData.find(relawan => relawan.id == relawanId);
-
-                if (selectedRelawan) {
-                    const districtId = selectedRelawan.district_id;
-
-                    Array.from(inputKecamatan.options).forEach(option => {
-                        option.selected = (option.value == districtId);
-                    });
-
-                    const event = new Event('change');
-                    inputKecamatan.dispatchEvent(event);
-                }
-            } else {
-                inputKecamatan.selectedIndex = 0;
-
-                if (currentLayer) {
-                    currentLayer.setStyle({
-                        fillOpacity: 0.3,
-                        weight: 1
-                    });
-                    currentLayer = null;
-                }
-            }
-        });
-
         omnivore.geojson(geoJsonPath)
             .on('ready', function() {
                 console.log('GeoJSON loaded successfully');
@@ -336,4 +307,5 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
     </script>
+    
 @endpush
