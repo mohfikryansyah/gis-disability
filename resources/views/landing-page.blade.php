@@ -431,6 +431,7 @@
         const infoContainerTitle = document.querySelector('#title');
         const penyandangCount = document.querySelector('#penyandang-count ');
         const relawanCount = document.querySelector('#relawan-count ');
+        const layananCount = document.querySelector('#layanan-count ');
         const districts = @json($districts);
 
         const gorontaloBounds = L.latLngBounds(
@@ -550,6 +551,8 @@
                             `Jumlah Penyandang: <b>${selectedDistrict.penyandang.length}</b>`;
                         relawanCount.innerHTML =
                             `Jumlah Relawan: <b>${selectedDistrict.relawan.length}</b>`;
+                        layananCount.innerHTML =
+                            `Jumlah Relawan: <b>${selectedDistrict.layanan.length}</b>`;
                     });
 
                     layer.on('mouseout', function() {
@@ -557,6 +560,7 @@
                         infoContainerTitle.innerHTML = 'Kota Gorontalo';
                         penyandangCount.innerHTML =
                             'Jumlah Penyandang: <b>{{ $penyandang->count() }}</b>';
+                        layananCount.innerHTML = 'Jumlah Relawan: <b>{{ $layanan->count() }}</b>';
                         relawanCount.innerHTML = 'Jumlah Relawan: <b>{{ $relawan->count() }}</b>';
                     });
                 });
