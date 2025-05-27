@@ -14,6 +14,8 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Exports\RelawanExportController;
 use App\Http\Controllers\Exports\PimpinanExportController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PengaturanAplikasiController;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
@@ -45,6 +47,8 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(func
     Route::resource('/persebaran', PersebaranController::class)->names('persebaran');
     Route::resource('/bantuan', BantuanController::class)->names('bantuan');
     Route::resource('/activity', ActivityController::class)->names('activity');
+    Route::resource('/pengaturan-aplikasi', PengaturanAplikasiController::class)->names('pengaturan.aplikasi')->parameters(['pengaturan-aplikasi' => 'pengaturanAplikasi']);
+    Route::resource('/layanan', LayananController::class)->names('layanan');
     Route::patch('/bantuan/{bantuan}/approve', [BantuanController::class, 'approve'])->middleware(['roles:' . UserRole::ADMIN])->name('bantuan.approve');
     Route::patch('/bantuan/{bantuan}/decline', [BantuanController::class, 'decline'])->middleware(['roles:' . UserRole::ADMIN])->name('bantuan.decline');
     Route::patch('/bantuan/{bantuan}/received', [BantuanController::class, 'received'])->middleware(['roles:' . UserRole::RELAWAN])->name('bantuan.received');

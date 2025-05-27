@@ -2,22 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePersebaranRequest;
-use App\Http\Requests\UpdatePersebaranRequest;
+use App\Models\Relawan;
 use App\Models\District;
 use App\Models\Penyandang;
 use App\Models\Persebaran;
-use App\Models\Relawan;
+use Illuminate\Http\Request;
+use App\Http\Requests\StorePersebaranRequest;
+use App\Http\Requests\UpdatePersebaranRequest;
+use App\Models\Layanan;
 
 class PersebaranController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $penyandang = Penyandang::all();
+        if ($request->has('jenis_disabilitas')) {
+            $jenisDisabilitas = $request->jenis_disabilitas ?? null;
+            $penyandang = Penyandang::where('jenis_disabilitas', $jenisDisabilitas)->get();
+        } else {
+            $jenisDisabilitas = null;
+            $penyandang = Penyandang::all();
+        }
         $relawan = Relawan::all();
         $districts = District::with('relawan', 'penyandang')->get();
+        $layanan = Layanan::all();
 
-        return view('pages.dashboard.persebaran.index', compact('penyandang', 'districts', 'relawan'));
+        return view('pages.dashboard.persebaran.index', compact('penyandang', 'districts', 'relawan', 'jenisDisabilitas', 'layanan'));
     }
 
     public function create()

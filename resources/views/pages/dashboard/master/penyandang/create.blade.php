@@ -39,17 +39,16 @@
                                     'value' => App\Constants\UserGender::FEMALE,
                                 ],
                             ]" />
-                            <x-form.select name="masa_pendidikan" label="Sedang Masa Pendidikan"
-                                :options="[
-                                    (object) [
-                                        'label' => 'Ya',
-                                        'value' => 'Ya',
-                                    ],
-                                    (object) [
-                                        'label' => 'Tidak',
-                                        'value' => 'Tidak',
-                                    ],
-                                ]" />
+                            <x-form.select name="masa_pendidikan" label="Sedang Masa Pendidikan" :options="[
+                                (object) [
+                                    'label' => 'Ya',
+                                    'value' => 'Ya',
+                                ],
+                                (object) [
+                                    'label' => 'Tidak',
+                                    'value' => 'Tidak',
+                                ],
+                            ]" />
                             <x-form.select name="pendidikan_terakhir" label="Pendidikan Terakhir" :options="[
                                 (object) [
                                     'label' => 'Tidak Sekolah',
@@ -123,7 +122,28 @@
                         </div>
                         <div class="mb-5">
                             <h5>Disabilitas</h5>
-                            <x-form.input type="text" name="jenis_disabilitas" label="Jenis Disabilitas" />
+                            <x-form.select name="jenis_disabilitas" label="Jenis Disabilitas" :options="[
+                                (object) [
+                                    'label' => 'Disabilitas Fisik',
+                                    'value' => 'Disabilitas Fisik',
+                                ],
+                                (object) [
+                                    'label' => 'Disabilitas Intelektual',
+                                    'value' => 'Disabilitas Intelektual',
+                                ],
+                                (object) [
+                                    'label' => 'Disabilitas Mental',
+                                    'value' => 'Disabilitas Mental',
+                                ],
+                                (object) [
+                                    'label' => 'Disabilitas Sensorik',
+                                    'value' => 'Disabilitas Sensorik',
+                                ],
+                                (object) [
+                                    'label' => 'Disabilitas Ganda',
+                                    'value' => 'Disabilitas Ganda',
+                                ],
+                            ]" />
                             {{-- <x-form.input type="text" name="keterangan_meninggal" label="Keterangan Meninggal" />
                             <x-form.input type="text" name="keterangan_sembuh" label="Keterangan Sembuh" /> --}}
                             <x-form.select name="keterangan" label="Keterangan" :options="[
@@ -137,7 +157,7 @@
                                 ],
                                 (object) [
                                     'label' => 'Meninggal',
-                                    'value' => 'Meninggal', 
+                                    'value' => 'Meninggal',
                                 ],
                             ]" />
                         </div>
@@ -193,29 +213,53 @@
         var marker = L.marker([0.5400, 123.0600]).addTo(map);
         const geoJsonPath = @json(asset('geojson/administrasi_kecamatan_kota_gorontalo_2.geojson'));
         let currentLayer = null;
+        let geoJsonLayers = [];
+
+        function findLayerByDistrictName(districtName) {
+            return geoJsonLayers.find(layer => {
+                if (layer.feature && layer.feature.properties) {
+                    if (layer.feature.properties.NAMOBJ === districtName) {
+                        return true;
+                    }
+                    if (layer.feature.properties.NAMOBJ.toLowerCase() === districtName.toLowerCase()) {
+                        return true;
+                    }
+                    if (layer.feature.properties.NAMOBJ.toLowerCase().includes(districtName.toLowerCase()) ||
+                        districtName.toLowerCase().includes(layer.feature.properties.NAMOBJ.toLowerCase())) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
 
         inputKecamatan.addEventListener('change', e => {
             const selectedOption = e.target.selectedOptions[0];
             const value = selectedOption.value;
-            const text = selectedOption.textContent;
+            const text = selectedOption.textContent.trim();
+
+            console.log('Selected district:', text);
 
             if (currentLayer) {
                 currentLayer.setStyle({
                     fillOpacity: 0.3,
                     weight: 1
                 });
+                currentLayer = null;
             }
 
-            map.eachLayer(layer => {
-                if (layer.feature && layer.feature.properties && layer.feature.properties.NAMOBJ === text) {
-                    currentLayer = layer;
-                    layer.setStyle({
+            if (value && text && text !== 'Pilih Kecamatan') {
+                const foundLayer = findLayerByDistrictName(text);
+
+                if (foundLayer) {
+                    currentLayer = foundLayer;
+                    currentLayer.setStyle({
                         fillOpacity: 0.5,
                         weight: 2
                     });
-                    map.fitBounds(layer.getBounds());
+                    map.fitBounds(currentLayer.getBounds());
                 }
-            });
+            }
         });
 
         relawanSelect.addEventListener('change', function() {
@@ -242,36 +286,58 @@
                         fillOpacity: 0.3,
                         weight: 1
                     });
+                    currentLayer = null;
                 }
             }
         });
 
-
         omnivore.geojson(geoJsonPath)
             .on('ready', function() {
+                console.log('GeoJSON loaded successfully');
+
                 this.eachLayer(function(layer) {
+                    geoJsonLayers.push(layer);
                     layer.setStyle({
                         fillOpacity: 0.3,
                         weight: 1
                     });
                 });
-            }).addTo(map);
+
+                const selectedDistrict = inputKecamatan.selectedOptions[0];
+                if (selectedDistrict && selectedDistrict.value && selectedDistrict.textContent.trim() !==
+                    'Pilih Kecamatan') {
+                    const event = new Event('change');
+                    inputKecamatan.dispatchEvent(event);
+                }
+            })
+            .on('error', function(e) {
+                console.error('Error loading GeoJSON:', e);
+            })
+            .addTo(map);
 
         map.on('click', function(e) {
+
             if (currentLayer) {
                 if (currentLayer.getBounds().contains(e.latlng)) {
                     var lat = e.latlng.lat.toFixed(6);
                     var lng = e.latlng.lng.toFixed(6);
 
-                    document.getElementById('latitude').value = lat;
-                    document.getElementById('longitude').value = lng;
+                    document.querySelector('[name="latitude"]').value = lat;
+                    document.querySelector('[name="longitude"]').value = lng;
 
                     marker.setLatLng(e.latlng);
                 } else {
-                    alert(`Titik berada di luar wilayah ${currentLayer.feature.properties.NAMOBJ}.`);
+                    const districtName = currentLayer.feature?.properties?.NAMOBJ || 'kecamatan yang dipilih';
+                    alert(`Titik berada di luar wilayah ${districtName}.`);
                 }
             } else {
-                alert('Pilih kecamatan terlebih dahulu.');
+                const selectedOption = inputKecamatan.selectedOptions[0];
+                if (!selectedOption || !selectedOption.value || selectedOption.textContent.trim() ===
+                    'Pilih Kecamatan') {
+                    alert('Pilih kecamatan terlebih dahulu.');
+                } else {
+                    alert('Kecamatan belum dimuat di peta. Silakan tunggu sebentar atau pilih ulang kecamatan.');
+                }
             }
         });
 

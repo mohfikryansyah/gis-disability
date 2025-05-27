@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600|bangers:400&display=swap" rel="stylesheet" />
     <link rel="shortcut icon"
-								href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC"
-								type="image/png">
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC"
+        type="image/png">
     {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app-dark.css') }}"> --}}
     {{-- <style>
@@ -139,13 +139,13 @@
             <div class="space-y-5 flex flex-col justify-center">
                 <div class="md:text-6xl text-5xl font-bold text-slate-800">
                     <h1 class="mb-4">
-                        Empowering
+                        {{ $pengaturanAplikasi->judul_utama_baris_1 }}
                     </h1>
                     <h1 class=" pb-2 rounded-lg mt-2 bg-yellow-400 px-4 max-w-fit">
-                        DisabilityCare
+                        {{ $pengaturanAplikasi->judul_utama_baris_2 }}
                     </h1>
                     <h1>
-                        on Gorontalo City
+                        {{ $pengaturanAplikasi->judul_utama_baris_3 }}
                     </h1>
                 </div>
                 <p class="mdtext-lg text-md text-gray-500">
@@ -163,7 +163,7 @@
 
             </div>
             <div class="overflow-hidden rounded-lg flex flex-col justify-center">
-                <img src="{{ asset('images/bgs.jpg') }}"
+                <img src="{{ asset('/storage/' . $pengaturanAplikasi->gambar_utama) }}"
                     class="rounded-lg mx-auto hover:scale-105 transition duration-300" alt="Gambar Illustrasi">
             </div>
         </div>
@@ -177,39 +177,40 @@
                     <h1 class="text-3xl font-bold ">Fitur Utama</h1>
                 </div>
             </div>
-            <div class="grid md:grid-cols-4 gap-5 max-w-screen-xl mx-auto md:px-0 px-5">
+            <div
+                class="grid {{ $pengaturanAplikasi->judul_fitur_4 !== null && $pengaturanAplikasi->fitur_4 !== null ? 'md:grid-cols-4' : 'md:grid-cols-3' }} gap-5 max-w-screen-xl mx-auto md:px-0 px-5">
                 <div class="bg-slate-700 space-y-4 p-4 rounded-lg hover:scale-105 transition duration-300">
-                    <h1 class="text-2xl text-start font-medium text-yellow-300">Pendataan Cepat</h1>
-                    <p class="text-start text-md text-gray-300">DisabilityCare menyediakan alat pendataan yang dirancang
-                        untuk mempermudah relawan dan admin dalam mencatat informasi penyandang disabilitas dengan
-                        antarmuka yang ramah pengguna.</p>
+                    <h1 class="text-2xl text-start font-medium text-yellow-300">
+                        {{ $pengaturanAplikasi->judul_fitur_1 }}
+                    </h1>
+                    <p class="text-start text-md text-gray-300">{{ $pengaturanAplikasi->fitur_1 }}</p>
                 </div>
                 <div class="bg-slate-700 space-y-4 p-4 rounded-lg hover:scale-105 transition duration-300">
-                    <h1 class="text-2xl text-start font-medium text-yellow-300">Pemetaan GIS</h1>
-                    <p class="text-start text-md text-gray-300">Fitur GIS memungkinkan pemetaan lokasi penyandang
-                        disabilitas secara visual dan interaktif. Admin dan relawan dapat melihat data geografis yang
-                        relevan, seperti penyebaran individu dengan kebutuhan khusus di suatu wilayah tertentu.</p>
+                    <h1 class="text-2xl text-start font-medium text-yellow-300">
+                        {{ $pengaturanAplikasi->judul_fitur_2 }}
+                    </h1>
+                    <p class="text-start text-md text-gray-300">{{ $pengaturanAplikasi->fitur_2 }}</p>
                 </div>
                 <div class="bg-slate-700 space-y-4 p-4 rounded-lg hover:scale-105 transition duration-300">
-                    <h1 class="text-2xl text-start font-medium text-yellow-300">Pengelolaan Bantuan</h1>
-                    <p class="text-start text-md text-gray-300">Fitur ini mempermudah distribusi dan pemantauan bantuan,
-                        baik berupa barang maupun layanan, kepada penyandang disabilitas. Relawan dan admin dapat
-                        mengelola jenis bantuan, jadwal pengiriman, serta melacak status penerimaan.</p>
+                    <h1 class="text-2xl text-start font-medium text-yellow-300">
+                        {{ $pengaturanAplikasi->judul_fitur_3 }}</h1>
+                    <p class="text-start text-md text-gray-300">{{ $pengaturanAplikasi->fitur_3 }}</p>
                 </div>
-                <div class="bg-slate-700 space-y-4 p-4 rounded-lg hover:scale-105 transition duration-300">
-                    <h1 class="text-2xl text-start font-medium text-yellow-300">Kolaborasi Relawan</h1>
-                    <p class="text-start text-md text-gray-300">latform ini menghubungkan relawan di berbagai wilayah
-                        untuk bekerja sama dalam membantu penyandang disabilitas. Melalui DisabilityCare, relawan dapat
-                        berbagi informasi, berkoordinasi untuk kegiatan lapangan, dan memanfaatkan fitur komunikasi yang
-                        terintegrasi.</p>
-                </div>
+                @if ($pengaturanAplikasi->judul_fitur_4 !== null && $pengaturanAplikasi->fitur_4 !== null)
+                    <div class="bg-slate-700 space-y-4 p-4 rounded-lg hover:scale-105 transition duration-300">
+                        <h1 class="text-2xl text-start font-medium text-yellow-300">
+                            {{ $pengaturanAplikasi->judul_fitur_4 }}</h1>
+                        <p class="text-start text-md text-gray-300">{{ $pengaturanAplikasi->fitur_4 }}</p>
+                    </div>
+                @endif
             </div>
         </div>
     </section>
 
     <section id="manfaat" class="w-full md:py-16 py-10 md:px-0 px-5">
         <div class="max-w-screen-xl mx-auto">
-            <h1 class="md:text-5xl text-4xl font-bold text-center md:leading-[3.75rem] text-slate-800">Dampak yang </br>
+            <h1 class="md:text-5xl text-4xl font-bold text-center md:leading-[3.75rem] text-slate-800">Dampak yang
+                </br>
                 Telah Kami Ciptakan</h1>
             <p class="text-xl max-w-lg mx-auto mt-8 text-gray-500 text-center leading-[2rem]">Melalui Kolaborasi dan
                 Kepedulian, Kami Telah Membantu Ribuan Orang di Kota Gorontalo</p>
@@ -302,7 +303,8 @@
 
     <section id="galeri" class="w-full pb-20 md:px-0 px-5">
         <div class="mx-auto max-w-screen-xl">
-            <h1 class="md:text-5xl text-4xl font-bold max-w-screen-xl mx-auto md:leading-[3.75rem] text-slate-800 mb-5">
+            <h1
+                class="md:text-5xl text-4xl font-bold max-w-screen-xl mx-auto md:leading-[3.75rem] text-slate-800 mb-5">
                 Galeri
             </h1>
             @if ($galleries->isNotEmpty())
@@ -314,22 +316,25 @@
                                     class="h-auto w-full hover:scale-105 transition duration-300 mx-auto rounded-lg"
                                     alt="Image">
                                 <!-- Overlay -->
-                                <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black to-transparent opacity-0 md:group-hover:opacity-100 transition duration-300 p-4 text-white text-left">
-                                    <p class="text-sm md:text-base">{{ $gallery->deskripsi ?? 'Tidak ada deskripsi' }}</p>
+                                <div
+                                    class="absolute inset-0 flex items-end bg-gradient-to-t from-black to-transparent opacity-0 md:group-hover:opacity-100 transition duration-300 p-4 text-white text-left">
+                                    <p class="text-sm md:text-base">{{ $gallery->deskripsi ?? 'Tidak ada deskripsi' }}
+                                    </p>
                                 </div>
-                                
+
                             </a>
                         </div>
                     @endforeach
                 </div>
             @else
-                <div class="w-full py-20 border-2 border-gray-200 border-dotted rounded-xl flex justify-center items-center">
+                <div
+                    class="w-full py-20 border-2 border-gray-200 border-dotted rounded-xl flex justify-center items-center">
                     Tidak ada foto yang tersedia untuk ditampilkan.
                 </div>
             @endif
         </div>
     </section>
-    
+
 
     <footer class="bg-slate-900">
         <div class="max-w-screen-xl md:px-0 px-4 flex justify-between items-center py-3 mx-auto">

@@ -118,7 +118,7 @@ class BantuanController extends Controller
         }
     }
 
-    public function approve(Bantuan $bantuan)
+        public function approve(Bantuan $bantuan)
     {
         try {
             $bantuan->status = 'DISETUJUI';

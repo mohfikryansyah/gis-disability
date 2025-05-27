@@ -60,7 +60,7 @@
 						<x-form.select name="jenis" label="Jenis Bantuan" :value="$bantuan->jenis" :options="collect(config('constants.JENIS_BANTUAN'))->map(function ($item) {
 						    return (object) ['label' => $item, 'value' => $item];
 						})" />
-						<x-form.input type="date" name="tanggal" label="Tanggal" :value="$bantuan->tanggal />
+						<x-form.input type="date" name="tanggal" label="Tanggal" :value="$bantuan->tanggal" />
 						<x-form.textarea name="detail" label="Detail Bantuan" :value="$bantuan->detail" />
 						@if (auth()->user()->isRelawan())
 							<x-form.input type="file" name="bukti" label="Bukti / Dokumentasi" />
@@ -74,6 +74,21 @@
 		</div>
 	</section>
 @endsection
-@push('scripts')
-	<script src="{{ asset('js/custom/format-phone.js') }}"></script>
+@push('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 @endpush
+
+@push('scripts')
+    <script src="{{ asset('js/custom/format-phone.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/id.js"></script>
+    <script>
+        flatpickr("#tanggal", {
+			locale: "id",
+            dateFormat: "d/m/Y",
+            altInput: true,
+            altFormat: "d/m/Y"
+        });
+    </script>
+@endpush
+

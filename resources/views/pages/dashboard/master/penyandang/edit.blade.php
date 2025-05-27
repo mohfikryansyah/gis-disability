@@ -129,8 +129,29 @@
                         </div>
                         <div class="mb-5">
                             <h5>Disabilitas</h5>
-                            <x-form.input type="text" name="jenis_disabilitas" label="Jenis Disabilitas"
-                                :value="$penyandang->jenis_disabilitas" />
+                            <x-form.select name="jenis_disabilitas" label="Jenis Disabilitas" :value="$penyandang->jenis_disabilitas"
+                                :options="[
+                                    (object) [
+                                        'label' => 'Disabilitas Fisik',
+                                        'value' => 'Disabilitas Fisik',
+                                    ],
+                                    (object) [
+                                        'label' => 'Disabilitas Intelektual',
+                                        'value' => 'Disabilitas Intelektual',
+                                    ],
+                                    (object) [
+                                        'label' => 'Disabilitas Mental',
+                                        'value' => 'Disabilitas Mental',
+                                    ],
+                                    (object) [
+                                        'label' => 'Disabilitas Sensorik',
+                                        'value' => 'Disabilitas Sensorik',
+                                    ],
+                                    (object) [
+                                        'label' => 'Disabilitas Ganda',
+                                        'value' => 'Disabilitas Ganda',
+                                    ],
+                                ]" />
                             {{-- <x-form.input type="text" name="keterangan_meninggal" label="Keterangan Meninggal" :value="$penyandang->keterangan_meninggal" />
 							<x-form.input type="text" name="keterangan_sembuh" label="Keterangan Sembuh" :value="$penyandang->keterangan_sembuh" /> --}}
                             <x-form.select name="keterangan" label="Keterangan" :value="$penyandang->keterangan" :options="[
@@ -177,80 +198,141 @@
     <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
     <script>
         const inputKecamatan = document.querySelector('#district_id');
-        inputKecamatan.value = @json($penyandang->district_id);
-        const selectedInputKecamatan = inputKecamatan.options[inputKecamatan.selectedIndex]
-        const penyandang_latitude = @json($penyandang->latitude) ?? 0.5400;
-        const penyandang_longitude = @json($penyandang->longitude) ?? 123.0600;
-        let map = L.map('map').setView([penyandang_latitude, penyandang_longitude], 13);
-        let marker = L.marker([penyandang_latitude, penyandang_longitude]).addTo(map);
+        var map = L.map('map').setView([0.5400, 123.0600], 12);
+        var marker = L.marker([0.5400, 123.0600]).addTo(map);
         const geoJsonPath = @json(asset('geojson/administrasi_kecamatan_kota_gorontalo_2.geojson'));
-        var currentLayer = null;
+        let currentLayer = null;
+        let geoJsonLayers = [];
+
+        function findLayerByDistrictName(districtName) {
+            return geoJsonLayers.find(layer => {
+                if (layer.feature && layer.feature.properties) {
+                    if (layer.feature.properties.NAMOBJ === districtName) {
+                        return true;
+                    }
+                    if (layer.feature.properties.NAMOBJ.toLowerCase() === districtName.toLowerCase()) {
+                        return true;
+                    }
+                    if (layer.feature.properties.NAMOBJ.toLowerCase().includes(districtName.toLowerCase()) ||
+                        districtName.toLowerCase().includes(layer.feature.properties.NAMOBJ.toLowerCase())) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
 
         inputKecamatan.addEventListener('change', e => {
             const selectedOption = e.target.selectedOptions[0];
             const value = selectedOption.value;
-            const text = selectedOption.textContent;
+            const text = selectedOption.textContent.trim();
+
+            console.log('Selected district:', text);
 
             if (currentLayer) {
                 currentLayer.setStyle({
                     fillOpacity: 0.3,
                     weight: 1
                 });
+                currentLayer = null;
             }
 
-            map.eachLayer(layer => {
-                if (layer.feature && layer.feature.properties && layer.feature.properties.NAMOBJ === text) {
-                    currentLayer = layer;
-                    layer.setStyle({
+            if (value && text && text !== 'Pilih Kecamatan') {
+                const foundLayer = findLayerByDistrictName(text);
+
+                if (foundLayer) {
+                    currentLayer = foundLayer;
+                    currentLayer.setStyle({
                         fillOpacity: 0.5,
                         weight: 2
                     });
-                    map.fitBounds(layer.getBounds());
+                    map.fitBounds(currentLayer.getBounds());
                 }
-            });
+            }
+        });
+
+        relawanSelect.addEventListener('change', function() {
+            const relawanId = this.value;
+
+            if (relawanId) {
+                const selectedRelawan = relawanData.find(relawan => relawan.id == relawanId);
+
+                if (selectedRelawan) {
+                    const districtId = selectedRelawan.district_id;
+
+                    Array.from(inputKecamatan.options).forEach(option => {
+                        option.selected = (option.value == districtId);
+                    });
+
+                    const event = new Event('change');
+                    inputKecamatan.dispatchEvent(event);
+                }
+            } else {
+                inputKecamatan.selectedIndex = 0;
+
+                if (currentLayer) {
+                    currentLayer.setStyle({
+                        fillOpacity: 0.3,
+                        weight: 1
+                    });
+                    currentLayer = null;
+                }
+            }
         });
 
         omnivore.geojson(geoJsonPath)
             .on('ready', function() {
+                console.log('GeoJSON loaded successfully');
+
                 this.eachLayer(function(layer) {
+                    geoJsonLayers.push(layer);
                     layer.setStyle({
                         fillOpacity: 0.3,
                         weight: 1
                     });
-
-                    if (layer?.feature?.properties?.NAMOBJ == selectedInputKecamatan.text) {
-                        currentLayer = layer;
-                        layer.setStyle({
-                            fillOpacity: 0.5,
-                            weight: 2
-                        });
-                        map.fitBounds(layer.getBounds());
-                    }
                 });
-            }).addTo(map);
+
+                const selectedDistrict = inputKecamatan.selectedOptions[0];
+                if (selectedDistrict && selectedDistrict.value && selectedDistrict.textContent.trim() !==
+                    'Pilih Kecamatan') {
+                    const event = new Event('change');
+                    inputKecamatan.dispatchEvent(event);
+                }
+            })
+            .on('error', function(e) {
+                console.error('Error loading GeoJSON:', e);
+            })
+            .addTo(map);
 
         map.on('click', function(e) {
+
             if (currentLayer) {
                 if (currentLayer.getBounds().contains(e.latlng)) {
                     var lat = e.latlng.lat.toFixed(6);
                     var lng = e.latlng.lng.toFixed(6);
 
-                    document.getElementById('latitude').value = lat;
-                    document.getElementById('longitude').value = lng;
+                    document.querySelector('[name="latitude"]').value = lat;
+                    document.querySelector('[name="longitude"]').value = lng;
 
                     marker.setLatLng(e.latlng);
                 } else {
-                    alert(`Titik berada di luar wilayah ${currentLayer.feature.properties.NAMOBJ}.`);
+                    const districtName = currentLayer.feature?.properties?.NAMOBJ || 'kecamatan yang dipilih';
+                    alert(`Titik berada di luar wilayah ${districtName}.`);
                 }
             } else {
-                alert('Pilih kecamatan terlebih dahulu.');
+                const selectedOption = inputKecamatan.selectedOptions[0];
+                if (!selectedOption || !selectedOption.value || selectedOption.textContent.trim() ===
+                    'Pilih Kecamatan') {
+                    alert('Pilih kecamatan terlebih dahulu.');
+                } else {
+                    alert('Kecamatan belum dimuat di peta. Silakan tunggu sebentar atau pilih ulang kecamatan.');
+                }
             }
         });
 
         L.Control.geocoder().addTo(map);
-
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
+            minZoom: 12,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
     </script>

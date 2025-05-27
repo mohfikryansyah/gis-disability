@@ -64,11 +64,24 @@
 	                'hasSubItems' => false,
 	                'link' => route('dashboard.gallery.index'),
 	            ],
+				(object) [
+	                'roles' => [$_ADMIN],
+	                'label' => 'Layanan',
+	                'icon' => 'bi bi-headset',
+	                'hasSubItems' => false,
+	                'link' => route('dashboard.layanan.index'),
+	            ],
 	        ],
 	    ],
 	    (object) [
 	        'title' => 'Lainnya',
 	        'items' => [
+	            (object) [
+	                'label' => 'Pengaturan Aplikasi',
+	                'icon' => 'bi bi-gear-fill',
+	                'hasSubItems' => false,
+	                'link' => route('dashboard.pengaturan.aplikasi.edit', [ 'pengaturanAplikasi' => 1 ]),
+	            ],
 	            (object) [
 	                'label' => 'Keamanan',
 	                'icon' => 'bi bi-lock-fill',

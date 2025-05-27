@@ -33,5 +33,18 @@
         </div>
     </section>
 @endsection
+@push('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+@endpush
 @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/id.js"></script>
+    <script>
+        flatpickr("#tanggal", {
+            locale: "id",
+            dateFormat: "d/m/Y",
+            altInput: true,
+            altFormat: "d/m/Y"
+        });
+    </script>
 @endpush
