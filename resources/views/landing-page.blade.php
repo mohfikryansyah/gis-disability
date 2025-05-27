@@ -270,6 +270,8 @@
                             {{ count($penyandang) }}</h1>
                         <h1 class="text-gray-800 font-medium" id="relawan-count">Jumlah Relawan :
                             {{ count($relawan) }}</h1>
+                        <h1 class="text-gray-800 font-medium" id="layanan-count">Jumlah Layanan :
+                            {{ count($layanan) }}</h1>
                     </div>
                 </div>
                 <div class="bg-gray-100 h-[50vh]">
@@ -449,25 +451,74 @@
             popupAnchor: [0, -32]
         });
 
+        const customIconLayanan = (icon) => L.icon({
+            iconUrl: icon ?? '{{ asset('icons/penyandang_3.svg') }}',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+
+        layanan.forEach(e => {
+            const latlng = [e.latitude, e.longitude]
+            const gmapsUrl = `https://www.google.com/maps?q=${e.latitude},${e.longitude}`;
+            const lihatDetailUrl = `{{ route('dashboard.layanan.show', ['layanan' => 'id']) }}`.replace(
+                'id',
+                e.id
+            );
+
+            const popupContent = `
+            <div style="min-width:200px; font-family:sans-serif">
+                <h2 style="font-size:1.1rem; margin-bottom:4px; font-weight:600;">${e.nama}</h2>
+                <p style="margin:2px 0;"><strong>Jenis:</strong> ${e.jenis}</p>
+                <p style="margin:2px 0;"><strong>Kontak:</strong> ${e.kontak}</p>
+                <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                <a href="${gmapsUrl}" target="_blank" 
+                    style="display:inline-block; margin-top:6px; padding:6px 10px; background-color:#187f80; color:white; border-radius:6px; text-decoration:none; width: 100%; text-align: center;">
+                    Lihat di Google Maps
+                </a>
+                <a href="${lihatDetailUrl}"
+                style="background-color: #facc15; color: black; padding: 6px 10px; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 500;">
+                    🔍 Lihat Detail
+                </a>
+                </div>
+            </div>
+        `;
+
+            let marker = L.marker(latlng, {
+                icon: customIconLayanan(e.icon ? '{{ asset('/') }}' + e.icon : null)
+            }).addTo(map);
+
+            marker.bindPopup(popupContent);
+        });
+
         penyandang.forEach(e => {
             const latlng = [e.latitude, e.longitude]
             let marker = L.marker(latlng, {
                 icon: customIcon
             }).addTo(map);
             marker.bindPopup(`
-				<div>
-					<div class="d-flex justify-content-between align-items-center gap-1 mb-1">
-						<span>Nama</span>
-						<b>${e.nama}</b>
-					</div>
-					<div class="d-flex justify-content-between align-items-center gap-1 mb-1">
-						<span>Alamat</span>
-						<b>${e.alamat}</b>
-					</div>
-					<div class="d-flex justify-content-between align-items-center">
-						<a href="https://maps.google.com/maps?q=${e.latitude},${e.longitude}">Lihat di Google Maps</a>
-					</div>
-				</div>
+				<div style="font-family: sans-serif; min-width: 220px;">
+                    <div style="margin-bottom: 6px;">
+                        <span style="color: #555;">Nama</span>
+                        <div style="font-weight: 600; color: #222;">${e.nama}</div>
+                    </div>
+                    <div style="margin-bottom: 6px;">
+                        <span style="color: #555;">Alamat</span>
+                        <div style="font-weight: 600; color: #222;">${e.alamat}</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                        <a href="https://maps.google.com/maps?q=${e.latitude},${e.longitude}" target="_blank"
+                        style="background-color: #187f80; color: white; padding: 6px 10px; text-align: center; border-radius: 6px; text-decoration: none;">
+                            📍 Lihat di Google Maps
+                        </a>
+                        <a href="${route.replace("uuid", e.uuid)}"
+                        style="background-color: #facc15; color: black; padding: 6px 10px; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 500;">
+                            🔍 Lihat Detail
+                        </a>
+                    </div>
+                </div>
+
 			`);
         });
 

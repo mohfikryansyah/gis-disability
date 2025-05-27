@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bantuan;
+use App\Models\Gallery;
+use App\Models\Layanan;
 use App\Models\Relawan;
 use App\Models\Activity;
 use App\Models\District;
-use App\Models\Gallery;
-use App\Models\PengaturanAplikasi;
 use App\Models\Penyandang;
 use Illuminate\Http\Request;
+use App\Models\PengaturanAplikasi;
 
 class LandingPageController extends Controller
 {
@@ -22,6 +23,7 @@ class LandingPageController extends Controller
         $kegiatan = Activity::with(['documentations', 'relawan'])->take(4)->latest()->get();
         $gallery = Gallery::take(6)->latest()->get();
         $pengaturanAplikasi = PengaturanAplikasi::first();
+        $layanan = Layanan::get();
         
         return view('landing-page', [
             'penyandang' => $penyandang,
@@ -31,6 +33,7 @@ class LandingPageController extends Controller
             'kegiatans' => $kegiatan,
             'galleries' => $gallery,
             'pengaturanAplikasi' => $pengaturanAplikasi,
+            'layanan' => $layanan,
         ]);
     }
 }
