@@ -10,9 +10,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call(AdminSeeder::class);
-        $this->call(ManagerSeeder::class);
-        $this->call(DistrictSeeder::class);
+        // $this->call(AdminSeeder::class);
+        // $this->call(ManagerSeeder::class);
+        // $this->call(DistrictSeeder::class);
 
         PengaturanAplikasi::create([
             'judul_utama_baris_1' => 'Empowering',
