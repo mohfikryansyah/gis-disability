@@ -426,6 +426,7 @@
     <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
     <script>
         const penyandang = @json($penyandang);
+        const layanan = @json($layanan);
         const geoJsonPath = @json(asset('geojson/administrasi_kecamatan_kota_gorontalo_2.geojson'));
         const route = @json(route('dashboard.master.penyandang.show', 'uuid'));
         const infoContainerTitle = document.querySelector('#title');
